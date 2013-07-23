@@ -98,7 +98,7 @@
     //self.baseImage.hidden = YES;
     //self.outLabel.hidden = YES;
     
-    self.batterImage.image = [UIImage imageNamed:@""];  //hiddenのメソッドを作ってもいいかも
+    self.batterImage.image = [UIImage imageNamed:@""];  //hiddenのメソッドを作ってもいいかも。画像のリセットも意味
     self.baseImage.image = [UIImage imageNamed:@"noRunner.png"]; //画像の名前も英語。もしくは画像のメソッドを作成
     self.playerNameLabel.text = @"";
     enemyScore = arc4random() % randomEnemyScore;       //メソッドとして抽出したほうがいいかも？
@@ -322,11 +322,11 @@
     [aoki setObject:@"aoki.png" forKey:@"Image"];
     [aoki setObject:@"青木" forKey:@"Name"];
     NSMutableDictionary *ramirez = [NSMutableDictionary dictionary];
-    [ramirez setObject:@"ramiresu.png" forKey:@"Image"];
+    [ramirez setObject:@"ramirez.png" forKey:@"Image"];
     [ramirez setObject:@"ﾗﾐﾚｽ" forKey:@"Name"];
     NSMutableDictionary *yamazakiSusumu = [NSMutableDictionary dictionary];
     [yamazakiSusumu setObject:@"yamazaki.png" forKey:@"Image"];
-    [yamazakiSusumu setObject:@"ｻﾞｯｷｰ" forKey:@"Name"];
+    [yamazakiSusumu setObject:@"ZACKY" forKey:@"Name"];
     
     pinchHitterPlayerArray = [NSMutableArray array];
     [pinchHitterPlayerArray addObject:matsunaka];
@@ -344,6 +344,7 @@
     [pinchHitterPlayerArray addObject:yamazakiSusumu];
 }
 
+
 - (void)setStadiumBackground{ 
     stadiumNumber = arc4random() % stadiumType;
     
@@ -354,6 +355,7 @@
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:[stadiumBackgroundArray objectAtIndex:stadiumNumber]]];
     
 }
+
 
 - (IBAction)setPowerButtonDown:(id)sender {
     /*
@@ -376,6 +378,7 @@
     self.playerNameLabel.text = [[powerPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Name"];
 }
 
+
 - (IBAction)setBalanceButtonDown:(id)sender {
     [self playerButtonDownHidden];
     playerStyle = 2;
@@ -387,6 +390,7 @@
     self.batterImage.image = [UIImage imageNamed:balancePlayer];
     self.playerNameLabel.text = [[balancePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Name"];
 }
+
 
 - (IBAction)setAverageButtonDown:(id)sender {
     [self playerButtonDownHidden];
@@ -400,6 +404,7 @@
     self.batterImage.image = [UIImage imageNamed:averagePlayer];
     self.playerNameLabel.text = [[averagePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Name"];
 }
+
 
 - (IBAction)setPinchHitterButtonDown:(id)sender {
     [self playerButtonDownHidden];
@@ -422,13 +427,12 @@
     self.powerButton.hidden = YES;
     self.pinchHitterButton.hidden = YES;
     self.battingButton.hidden = NO;
+    self.pitcherImage.hidden = NO;
     self.resultLabel.text = @"";
     
+    
     self.playerNameLabel.hidden = NO;
-    //self.resultLabel.hidden = NO;
     self.baseLabel.hidden = NO;
-    //self.baseImage.hidden = NO;
-    //self.outLabel.hidden = NO;
 }
 
 
@@ -436,9 +440,10 @@
     battingResult = arc4random() % randamNumber;
     [self buttonPowerAverageBalanceHiddenNo]; //メソッドの先頭に持ってきた
     
+
     switch(playerStyle){
-            
         case 1:
+            battingResult = 10;
             if(battingResult < 20){
                 [self homerun];
                         }
@@ -461,6 +466,8 @@
             break;
             
         case 2:
+            
+            battingResult = 90;
             if (battingResult < 10) {
                 [self homerun];
                     }
@@ -505,19 +512,19 @@
             break;
             
         case 4:
-            if (battingResult < 50) {
+            if (battingResult < 75) {
                 [self homerun];
             }
             
-            if (battingResult >= 50 && battingResult < 55) {
+            if (battingResult >= 75 && battingResult < 79) {
                 [self threeBaseHit];
             }
             
-            if (battingResult >= 55 && battingResult < 85) {
+            if (battingResult >= 79 && battingResult < 91) {
                 [self twoBaseHit];
             }
             
-            if (battingResult >= 85 && battingResult < 95) {
+            if (battingResult >= 91 && battingResult < 95) {
                 [self singleHit];
             }
             
@@ -548,7 +555,6 @@
 
 
 - (void)buttonPowerAverageBalanceHiddenNo{
-    //if(buttonHidden != 1){
     self.powerButton.hidden = NO;
     self.averageButton.hidden = NO;
     self.balanceButton.hidden = NO;
@@ -556,7 +562,6 @@
         if(pinchHitter == 0){
             self.pinchHitterButton.hidden = NO;
             }
-   // }
 }
 
 - (void)homerun{
@@ -685,8 +690,12 @@
             break;
 
     }
+            self.powerButton.hidden = YES;
+            self.averageButton.hidden = YES;
+            self.balanceButton.hidden = YES;
+            self.pinchHitterButton.hidden = YES;
+        }
     }
-}
 }
 
 - (IBAction)changeButtonDown:(id)sender {
@@ -701,6 +710,7 @@
     self.changeButton.hidden = YES;
     self.baseLabel.hidden = YES;
     self.playerNameLabel.hidden = YES;
+    self.pitcherImage.hidden = YES;
     
     self.playerNameLabel.text = @"";
     self.resultLabel.text = @"チェンジ";

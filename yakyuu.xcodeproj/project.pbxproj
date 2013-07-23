@@ -60,7 +60,7 @@
 		0C15A9E316AF64ED00347892 /* yokohama.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A99816AF64DF00347892 /* yokohama.png */; };
 		0C15A9E416AF64ED00347892 /* zinguu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A99916AF64E000347892 /* zinguu.png */; };
 		0C15A9EC16AF64ED00347892 /* noRunner.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A9A116AF64EB00347892 /* noRunner.png */; };
-		0C15A9EE16AF6A1B00347892 /* peni.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A9ED16AF6A1B00347892 /* peni.png */; };
+		0C15A9EE16AF6A1B00347892 /* penny.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A9ED16AF6A1B00347892 /* penny.png */; };
 		0C15A9F016AF6E9800347892 /* yamazaki.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A9EF16AF6E9800347892 /* yamazaki.png */; };
 		0C56F11C16A00D0200C3E4A1 /* homerun.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C56F0F516A00D0200C3E4A1 /* homerun.jpg */; };
 		0C56F13016A00D0200C3E4A1 /* ランナー一塁三塁.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C56F10916A00D0200C3E4A1 /* ランナー一塁三塁.jpg */; };
@@ -167,7 +167,7 @@
 		0C15A99816AF64DF00347892 /* yokohama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yokohama.png; sourceTree = "<group>"; };
 		0C15A99916AF64E000347892 /* zinguu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zinguu.png; sourceTree = "<group>"; };
 		0C15A9A116AF64EB00347892 /* noRunner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noRunner.png; sourceTree = "<group>"; };
-		0C15A9ED16AF6A1B00347892 /* peni.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = peni.png; sourceTree = "<group>"; };
+		0C15A9ED16AF6A1B00347892 /* penny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = penny.png; sourceTree = "<group>"; };
 		0C15A9EF16AF6E9800347892 /* yamazaki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yamazaki.png; sourceTree = "<group>"; };
 		0C56F0F516A00D0200C3E4A1 /* homerun.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = homerun.jpg; path = "../../../../Desktop/OOP のコピー/homerun.jpg"; sourceTree = "<group>"; };
 		0C56F10916A00D0200C3E4A1 /* ランナー一塁三塁.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "ランナー一塁三塁.jpg"; path = "../../../../Desktop/OOP のコピー/ランナー一塁三塁.jpg"; sourceTree = "<group>"; };
@@ -337,7 +337,7 @@
 				0C15A97F16AF64C300347892 /* otiz.png */,
 				0C15A98016AF64C400347892 /* pena.png */,
 				0C15A98116AF64C500347892 /* pena2.png */,
-				0C15A9ED16AF6A1B00347892 /* peni.png */,
+				0C15A9ED16AF6A1B00347892 /* penny.png */,
 				F380EACA179E5AB8008AF6E4 /* brazell.png */,
 				0C15A98516AF64C800347892 /* rakuten.png */,
 				0C15A98716AF64CA00347892 /* saburo.png */,
@@ -524,7 +524,7 @@
 				0C15A9E316AF64ED00347892 /* yokohama.png in Resources */,
 				0C15A9E416AF64ED00347892 /* zinguu.png in Resources */,
 				0C15A9EC16AF64ED00347892 /* noRunner.png in Resources */,
-				0C15A9EE16AF6A1B00347892 /* peni.png in Resources */,
+				0C15A9EE16AF6A1B00347892 /* penny.png in Resources */,
 				0C15A9F016AF6E9800347892 /* yamazaki.png in Resources */,
 				0C9FEBDA16AF85070071C2AC /* gazou.png in Resources */,
 				F39B8F0A179D51AE0046B903 /* runnerFirst.png in Resources */,
