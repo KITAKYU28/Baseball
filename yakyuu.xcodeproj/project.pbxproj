@@ -50,7 +50,6 @@
 		0C15A9CA16AF64ED00347892 /* otiz.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A97F16AF64C300347892 /* otiz.png */; };
 		0C15A9CB16AF64ED00347892 /* pena.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A98016AF64C400347892 /* pena.png */; };
 		0C15A9CC16AF64ED00347892 /* pena2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A98116AF64C500347892 /* pena2.png */; };
-		0C15A9CD16AF64ED00347892 /* pバレンティン.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A98216AF64C600347892 /* pバレンティン.jpg */; };
 		0C15A9CE16AF64ED00347892 /* pブラゼル.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A98316AF64C600347892 /* pブラゼル.jpg */; };
 		0C15A9CF16AF64ED00347892 /* p中村剛也.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A98416AF64C700347892 /* p中村剛也.jpg */; };
 		0C15A9D016AF64ED00347892 /* rakuten.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A98516AF64C800347892 /* rakuten.png */; };
@@ -67,7 +66,6 @@
 		0C15A9DB16AF64ED00347892 /* tokada.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A99016AF64D400347892 /* tokada.jpg */; };
 		0C15A9DC16AF64ED00347892 /* tokyo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A99116AF64D600347892 /* tokyo.png */; };
 		0C15A9DD16AF64ED00347892 /* toritani.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A99216AF64D700347892 /* toritani.jpg */; };
-		0C15A9DE16AF64ED00347892 /* tutugou.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A99316AF64D800347892 /* tutugou.jpg */; };
 		0C15A9DF16AF64ED00347892 /* wada.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A99416AF64D900347892 /* wada.jpg */; };
 		0C15A9E016AF64ED00347892 /* yahoo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A99516AF64DB00347892 /* yahoo.jpg */; };
 		0C15A9E116AF64ED00347892 /* yahoo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A99616AF64DC00347892 /* yahoo.png */; };
@@ -103,6 +101,12 @@
 		0C682308169D4959000814AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0C682306169D4959000814AD /* InfoPlist.strings */; };
 		0C68230B169D4959000814AD /* yakyuuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C68230A169D4959000814AD /* yakyuuTests.m */; };
 		0C9FEBDA16AF85070071C2AC /* gazou.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9FEBD916AF85070071C2AC /* gazou.png */; };
+		F31F966F179E490B002C4564 /* tsutsugo.png in Resources */ = {isa = PBXBuildFile; fileRef = F31F966E179E490B002C4564 /* tsutsugo.png */; };
+		F31F9671179E4A5B002C4564 /* balentien.png in Resources */ = {isa = PBXBuildFile; fileRef = F31F9670179E4A5B002C4564 /* balentien.png */; };
+		F390F1EB179D5DF4001DB7DA /* runner.png in Resources */ = {isa = PBXBuildFile; fileRef = F390F1EA179D5DF4001DB7DA /* runner.png */; };
+		F39B8F0A179D51AE0046B903 /* runnerFirst.png in Resources */ = {isa = PBXBuildFile; fileRef = F39B8F07179D51AE0046B903 /* runnerFirst.png */; };
+		F39B8F0B179D51AE0046B903 /* runnerSecond.png in Resources */ = {isa = PBXBuildFile; fileRef = F39B8F08179D51AE0046B903 /* runnerSecond.png */; };
+		F39B8F0C179D51AE0046B903 /* runnerThird.png in Resources */ = {isa = PBXBuildFile; fileRef = F39B8F09179D51AE0046B903 /* runnerThird.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,7 +163,6 @@
 		0C15A97F16AF64C300347892 /* otiz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otiz.png; sourceTree = "<group>"; };
 		0C15A98016AF64C400347892 /* pena.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pena.png; sourceTree = "<group>"; };
 		0C15A98116AF64C500347892 /* pena2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pena2.png; sourceTree = "<group>"; };
-		0C15A98216AF64C600347892 /* pバレンティン.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "pバレンティン.jpg"; sourceTree = "<group>"; };
 		0C15A98316AF64C600347892 /* pブラゼル.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "pブラゼル.jpg"; sourceTree = "<group>"; };
 		0C15A98416AF64C700347892 /* p中村剛也.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "p中村剛也.jpg"; sourceTree = "<group>"; };
 		0C15A98516AF64C800347892 /* rakuten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rakuten.png; sourceTree = "<group>"; };
@@ -176,7 +179,6 @@
 		0C15A99016AF64D400347892 /* tokada.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tokada.jpg; sourceTree = "<group>"; };
 		0C15A99116AF64D600347892 /* tokyo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tokyo.png; sourceTree = "<group>"; };
 		0C15A99216AF64D700347892 /* toritani.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = toritani.jpg; sourceTree = "<group>"; };
-		0C15A99316AF64D800347892 /* tutugou.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tutugou.jpg; sourceTree = "<group>"; };
 		0C15A99416AF64D900347892 /* wada.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wada.jpg; sourceTree = "<group>"; };
 		0C15A99516AF64DB00347892 /* yahoo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yahoo.jpg; sourceTree = "<group>"; };
 		0C15A99616AF64DC00347892 /* yahoo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yahoo.png; sourceTree = "<group>"; };
@@ -217,6 +219,12 @@
 		0C682309169D4959000814AD /* yakyuuTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = yakyuuTests.h; sourceTree = "<group>"; };
 		0C68230A169D4959000814AD /* yakyuuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = yakyuuTests.m; sourceTree = "<group>"; };
 		0C9FEBD916AF85070071C2AC /* gazou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gazou.png; sourceTree = "<group>"; };
+		F31F966E179E490B002C4564 /* tsutsugo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tsutsugo.png; sourceTree = "<group>"; };
+		F31F9670179E4A5B002C4564 /* balentien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = balentien.png; sourceTree = "<group>"; };
+		F390F1EA179D5DF4001DB7DA /* runner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runner.png; sourceTree = "<group>"; };
+		F39B8F07179D51AE0046B903 /* runnerFirst.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runnerFirst.png; sourceTree = "<group>"; };
+		F39B8F08179D51AE0046B903 /* runnerSecond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runnerSecond.png; sourceTree = "<group>"; };
+		F39B8F09179D51AE0046B903 /* runnerThird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runnerThird.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +308,7 @@
 				0C15A95D16AF64AC00347892 /* b松田.jpg */,
 				0C15A95E16AF64AC00347892 /* b中島.jpg */,
 				0C15A95F16AF64AC00347892 /* b長野.jpg */,
+				F31F9670179E4A5B002C4564 /* balentien.png */,
 				0C15A96016AF64AC00347892 /* doubayashi.png */,
 				0C15A96116AF64AC00347892 /* feru.png */,
 				0C15A96216AF64AD00347892 /* gotou.png */,
@@ -335,7 +344,6 @@
 				0C15A98016AF64C400347892 /* pena.png */,
 				0C15A98116AF64C500347892 /* pena2.png */,
 				0C15A9ED16AF6A1B00347892 /* peni.png */,
-				0C15A98216AF64C600347892 /* pバレンティン.jpg */,
 				0C15A98316AF64C600347892 /* pブラゼル.jpg */,
 				0C15A98416AF64C700347892 /* p中村剛也.jpg */,
 				0C15A98516AF64C800347892 /* rakuten.png */,
@@ -349,10 +357,10 @@
 				0C15A98D16AF64D100347892 /* tamura.jpg */,
 				0C15A98E16AF64D200347892 /* tanakaken.png */,
 				0C15A98F16AF64D300347892 /* teppei.jpg */,
+				F31F966E179E490B002C4564 /* tsutsugo.png */,
 				0C15A99016AF64D400347892 /* tokada.jpg */,
 				0C15A99116AF64D600347892 /* tokyo.png */,
 				0C15A99216AF64D700347892 /* toritani.jpg */,
-				0C15A99316AF64D800347892 /* tutugou.jpg */,
 				0C15A99416AF64D900347892 /* wada.jpg */,
 				0C15A99516AF64DB00347892 /* yahoo.jpg */,
 				0C15A99616AF64DC00347892 /* yahoo.png */,
@@ -367,6 +375,10 @@
 				0C15A99F16AF64E800347892 /* ランナー二塁三塁.jpg */,
 				0C15A9A016AF64EA00347892 /* ランナー満塁.jpg */,
 				0C15A9A116AF64EB00347892 /* ランナー無.jpg */,
+				F390F1EA179D5DF4001DB7DA /* runner.png */,
+				F39B8F07179D51AE0046B903 /* runnerFirst.png */,
+				F39B8F08179D51AE0046B903 /* runnerSecond.png */,
+				F39B8F09179D51AE0046B903 /* runnerThird.png */,
 				0C56F11016A00D0200C3E4A1 /* 新規 Microsoft Office Excel ワークシート.xlsx */,
 				0C6822E2169D4958000814AD /* InfoPlist.strings */,
 				0C6822E5169D4958000814AD /* main.m */,
@@ -516,7 +528,6 @@
 				0C15A9CA16AF64ED00347892 /* otiz.png in Resources */,
 				0C15A9CB16AF64ED00347892 /* pena.png in Resources */,
 				0C15A9CC16AF64ED00347892 /* pena2.png in Resources */,
-				0C15A9CD16AF64ED00347892 /* pバレンティン.jpg in Resources */,
 				0C15A9CE16AF64ED00347892 /* pブラゼル.jpg in Resources */,
 				0C15A9CF16AF64ED00347892 /* p中村剛也.jpg in Resources */,
 				0C15A9D016AF64ED00347892 /* rakuten.png in Resources */,
@@ -533,7 +544,6 @@
 				0C15A9DB16AF64ED00347892 /* tokada.jpg in Resources */,
 				0C15A9DC16AF64ED00347892 /* tokyo.png in Resources */,
 				0C15A9DD16AF64ED00347892 /* toritani.jpg in Resources */,
-				0C15A9DE16AF64ED00347892 /* tutugou.jpg in Resources */,
 				0C15A9DF16AF64ED00347892 /* wada.jpg in Resources */,
 				0C15A9E016AF64ED00347892 /* yahoo.jpg in Resources */,
 				0C15A9E116AF64ED00347892 /* yahoo.png in Resources */,
@@ -550,6 +560,12 @@
 				0C15A9EE16AF6A1B00347892 /* peni.png in Resources */,
 				0C15A9F016AF6E9800347892 /* yamazaki.png in Resources */,
 				0C9FEBDA16AF85070071C2AC /* gazou.png in Resources */,
+				F39B8F0A179D51AE0046B903 /* runnerFirst.png in Resources */,
+				F39B8F0B179D51AE0046B903 /* runnerSecond.png in Resources */,
+				F39B8F0C179D51AE0046B903 /* runnerThird.png in Resources */,
+				F390F1EB179D5DF4001DB7DA /* runner.png in Resources */,
+				F31F966F179E490B002C4564 /* tsutsugo.png in Resources */,
+				F31F9671179E4A5B002C4564 /* balentien.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

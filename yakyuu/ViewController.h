@@ -16,13 +16,13 @@
     NSMutableArray *pinchHitterPlayerArray;
 }
 
-typedef struct baseState {
+typedef struct baseRunnerExist {
     unsigned first:1;  //1ビットって意味
     unsigned second:1;
     unsigned third:1;
 } baseStruct;
 
-@property baseStruct baseState;
+@property baseStruct baseRunnerExist;
 
 @property (weak, nonatomic) IBOutlet UILabel *sevenBottomLabel;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
@@ -42,6 +42,9 @@ typedef struct baseState {
 @property (weak, nonatomic) IBOutlet UIImageView *baseImage;
 @property (weak, nonatomic) IBOutlet UIImageView *batterImage;
 @property (weak, nonatomic) IBOutlet UIImageView *pitcherImage;
+@property (weak, nonatomic) IBOutlet UIImageView *runnerFirst;
+@property (weak, nonatomic) IBOutlet UIImageView *runnerSecond;
+@property (weak, nonatomic) IBOutlet UIImageView *runnerThird;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *pinchHitterButton;
@@ -76,5 +79,6 @@ typedef struct baseState {
 - (void)win:(int)number;
 - (void)setStadiumBackground;
 - (void)baseImageMethod;
+- (void)baseRunnerText;
 
 @end

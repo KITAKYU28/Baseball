@@ -20,7 +20,7 @@
     int ownScore;
     int enemyScore;
     int outCount;
-    int whichBaseIsRunner;
+    //int whichBaseIsRunner;
     int buttonHidden;
     int randomPlayer;
     int totalEnemyScore;
@@ -62,7 +62,11 @@
     
     outCount = 0;
     ownScore = 0;
-    whichBaseIsRunner = 0; //enumで、bitで
+    //whichBaseIsRunner = 0; //enumで、bitで
+    _baseRunnerExist.third = 0;
+    _baseRunnerExist.second = 0;
+    _baseRunnerExist.first = 0;
+    [self baseImageMethod];
     inning = 7;
     buttonHidden = 0; //Yes,Noでやる
     totalOwnScore = 0;
@@ -100,7 +104,7 @@
     
     //スタジアム画像
     stadiumBackgroundArray = [NSMutableArray array];
-    [stadiumBackgroundArray addObject:@"yahoo.png"];                //メンバー変数を登録、initializeに画像を書く
+    [stadiumBackgroundArray addObject:@"yahoo.png"];     //メンバー変数を登録、initializeに画像を書く
     [stadiumBackgroundArray addObject:@"kousien.png"];
     [stadiumBackgroundArray addObject:@"kyousera.png"];
     [stadiumBackgroundArray addObject:@"marine.png"];
@@ -121,7 +125,7 @@
     [nakamuraTakeya setObject:@"p中村剛也.jpg" forKey:@"Image"];
     [nakamuraTakeya setObject:@"中村剛" forKey:@"Name"];
     NSMutableDictionary *balentien = [NSMutableDictionary dictionary];
-    [balentien setObject:@"pバレンティン.jpg" forKey:@"Image"];
+    [balentien setObject:@"balentien.png" forKey:@"Image"];
     [balentien setObject:@"ﾊﾞﾚﾝﾃｨﾝ" forKey:@"Name"];
     NSMutableDictionary *pena = [NSMutableDictionary dictionary];
     [pena setObject:@"pena2.png" forKey:@"Image"];
@@ -136,7 +140,7 @@
     [tokada setObject:@"tokada.jpg" forKey:@"Image"];
     [tokada setObject:@"T−岡田" forKey:@"Name"];
     NSMutableDictionary *tsutsugou = [NSMutableDictionary dictionary];
-    [tsutsugou setObject:@"tutugou.jpg" forKey:@"Image"];
+    [tsutsugou setObject:@"tsutsugo.png" forKey:@"Image"];
     [tsutsugou setObject:@"筒香" forKey:@"Name"];
     NSMutableDictionary *abe = [NSMutableDictionary dictionary];
     [abe setObject:@"abe.jpg" forKey:@"Image"];
@@ -524,14 +528,16 @@
             [self buttonPowerAverageBalanceHiddenNo];
             break;
     }
+    
     self.battingButton.hidden = YES;
     
     if(buttonHidden == 1){
-    self.balanceButton.hidden =YES;
-    self.averageButton.hidden = YES;
-    self.powerButton.hidden = YES;
-        if(pinchHitter == 1){
-    self.pinchHitterButton.hidden = YES;
+        self.balanceButton.hidden =YES;
+        self.averageButton.hidden = YES;
+        self.powerButton.hidden = YES;
+        
+    if(pinchHitter == 1){
+        self.pinchHitterButton.hidden = YES;
         }
             buttonHidden = 0;
     }
@@ -590,7 +596,11 @@
         case 3:
             if(inning != 9){
         outCount = 0;
-        whichBaseIsRunner = 0;
+        //whichBaseIsRunner = 0;
+        _baseRunnerExist.third = 0;
+        _baseRunnerExist.second = 0;
+        _baseRunnerExist.first = 0;
+        [self baseImageMethod];
         buttonHidden = 1;
         self.resultLabel.text = @"スリーアウト!!";
         self.baseLabel.text = @"";
@@ -1106,81 +1116,85 @@
 - (void)runner:(int)number{
     
     switch(number){
+            //シングルヒット
         case 1:
-            if(_baseState.third == 1){
-                _baseState.third = 0;
+            if(_baseRunnerExist.third == 1){
+                _baseRunnerExist.third = 0;
                 ownScore = ownScore + 1;
                 [self win:1];
             }
             
-            if(_baseState.second == 1){
-                _baseState.third = 1;
-                _baseState.second = 0;
+            if(_baseRunnerExist.second == 1){
+                _baseRunnerExist.third = 1;
+                _baseRunnerExist.second = 0;
             }
             
-            if(_baseState.first == 1){
-                _baseState.second = 1;
+            if(_baseRunnerExist.first == 1){
+                _baseRunnerExist.second = 1;
             }
         
-            _baseState.first = 1;
+            _baseRunnerExist.first = 1;
             break;
          
+            //ツーベースヒット
         case 2:
-            if(_baseState.third == 1){
-                _baseState.third = 0;
+            if(_baseRunnerExist.third == 1){
+                _baseRunnerExist.third = 0;
                 ownScore = ownScore + 1;
                 [self win:1];
             }
             
-            if(_baseState.second == 1){
-                _baseState.second = 0;
+            if(_baseRunnerExist.second == 1){
+                _baseRunnerExist.second = 0;
                 ownScore = ownScore + 1;
                 [self win:1];
             }
             
-            if(_baseState.first == 1){
-                _baseState.third = 1;
-                _baseState.first = 0;
+            if(_baseRunnerExist.first == 1){
+                _baseRunnerExist.third = 1;
+                _baseRunnerExist.first = 0;
             }
             
-            _baseState.second = 1;
+            _baseRunnerExist.second = 1;
             break;
      
+            //スリーベースヒット
         case 3:
-            if(_baseState.third == 1){
-                _baseState.third = 0;
+            if(_baseRunnerExist.third == 1){
+                _baseRunnerExist.third = 0;
                 ownScore = ownScore + 1;
                 [self win:1];
             }
             
-            if(_baseState.second == 1){
-                _baseState.second = 0;
+            if(_baseRunnerExist.second == 1){
+                _baseRunnerExist.second = 0;
                 ownScore = ownScore + 1;
                 [self win:1];
             }
             
-            if(_baseState.first == 1){
-                _baseState.first = 0;
+            if(_baseRunnerExist.first == 1){
+                _baseRunnerExist.first = 0;
                 ownScore = ownScore + 1;
                 [self win:1];
             }
             
-            _baseState.third = 1;
+            _baseRunnerExist.third = 1;
             break;
             
+            //ホームラン
         case 4:
-            if(_baseState.third == 1){
-                _baseState.third = 0;
+            if(_baseRunnerExist.third == 1){
+                _baseRunnerExist.third = 0;
                 ownScore = ownScore + 1;
             }
             
-            if(_baseState.second == 1){
-                _baseState.second = 0;
+            if(_baseRunnerExist.second == 1){
+                _baseRunnerExist.second = 0;
                 ownScore = ownScore + 1;
             }
             
-            if(_baseState.first == 1){
-                _baseState.first = 0;
+            if(_baseRunnerExist.first == 1){
+                _baseRunnerExist.first = 0;
                 ownScore = ownScore + 1;
             }
             
@@ -1191,31 +1205,76 @@
     }
     
     [self baseImageMethod];
+    [self baseRunnerText];
 }
 
 - (void)baseImageMethod{
-    if(_baseState.third == 1){
-        
+    if(_baseRunnerExist.third == 1){
+        self.runnerThird.hidden = NO;
     }
     
-    if(_baseState.third == 0){
-        
+    if(_baseRunnerExist.third == 0){
+         self.runnerThird.hidden = YES;
     }
     
-    if(_baseState.second == 1){
-        
+    if(_baseRunnerExist.second == 1){
+         self.runnerSecond.hidden = NO;
     }
     
-    if(_baseState.second == 0){
-        
+    if(_baseRunnerExist.second == 0){
+         self.runnerSecond.hidden = YES;
     }
     
-    if(_baseState.first == 1){
-        
+    if(_baseRunnerExist.first == 1){
+         self.runnerFirst.hidden = NO;
     }
     
-    if(_baseState.first == 0){
-        
+    if(_baseRunnerExist.first == 0){
+         self.runnerFirst.hidden = YES;
+    }
+    
+}
+
+
+- (void)baseRunnerText{
+    //ランナー無し
+    if(_baseRunnerExist.first == 0 && _baseRunnerExist.second == 0 && _baseRunnerExist.third == 0){
+        self.baseLabel.text = @"ランナーなし";
+    }
+    
+    //ランナー１塁
+    if(_baseRunnerExist.first == 1 && _baseRunnerExist.second == 0 && _baseRunnerExist.third == 0){
+        self.baseLabel.text = @"ランナー１塁";
+    }
+    
+    //ランナー２塁
+    if(_baseRunnerExist.first == 0 && _baseRunnerExist.second == 1 && _baseRunnerExist.third == 0){
+        self.baseLabel.text = @"ランナー２塁";
+    }
+    
+    //ランナー３塁
+    if(_baseRunnerExist.first == 0 && _baseRunnerExist.second == 0 && _baseRunnerExist.third == 1){
+        self.baseLabel.text = @"ランナー３塁";
+    }
+    
+    //ランナー１、２塁
+    if(_baseRunnerExist.first == 1 && _baseRunnerExist.second == 1 && _baseRunnerExist.third == 0){
+        self.baseLabel.text = @"ランナー１、２塁";
+    }
+    
+    //ランナー１、３塁
+    if(_baseRunnerExist.first == 1 && _baseRunnerExist.second == 0 && _baseRunnerExist.third == 1){
+        self.baseLabel.text = @"ランナー１、３塁";
+    }
+    
+    //ランナー２、３塁
+    if(_baseRunnerExist.first == 0 && _baseRunnerExist.second == 1 && _baseRunnerExist.third == 1){
+        self.baseLabel.text = @"ランナー２、３塁";
+    }
+    
+    //ランナー満塁
+    if(_baseRunnerExist.first == 1 && _baseRunnerExist.second == 1 && _baseRunnerExist.third == 1){
+        self.baseLabel.text = @"ランナー満塁!!";
     }
     
 }
