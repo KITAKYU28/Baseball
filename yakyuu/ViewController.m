@@ -21,7 +21,7 @@
     int enemyScore;
     int outCount;
     //int whichBaseIsRunner;
-    int buttonHidden;
+    //int buttonHidden;    不要だったので削除
     int randomPlayer;
     int totalEnemyScore;
     int totalOwnScore;
@@ -68,7 +68,7 @@
     _baseRunnerExist.first = 0;
     [self baseImageMethod];
     inning = 7;
-    buttonHidden = 0; //Yes,Noでやる
+    //buttonHidden = 0; //Yes,Noでやる
     totalOwnScore = 0;
     pinchHitter = 0;
     self.resultLabel.text = @"打席結果";
@@ -82,6 +82,7 @@
     self.nineTopLabel.text = @"";
     self.totalLabel.text = @"";
     self.totalEnemyLabel.text = @"";
+    self.baseLabel.text = @"ランナーなし";
     
     self.pitcherImage.hidden = YES;
     self.changeButton.hidden = YES;
@@ -90,6 +91,13 @@
     self.averageButton.hidden = NO;
     self.pinchHitterButton.hidden = NO;
     self.battingButton.hidden = YES;
+    self.changeButton.hidden = YES;
+    self.playerNameLabel.hidden = YES;
+    //self.resultLabel.hidden = YES;
+    self.baseLabel.hidden = YES;
+    //self.baseImage.hidden = YES;
+    //self.outLabel.hidden = YES;
+    
     self.batterImage.image = [UIImage imageNamed:@""];  //hiddenのメソッドを作ってもいいかも
     self.baseImage.image = [UIImage imageNamed:@"noRunner.png"]; //画像の名前も英語。もしくは画像のメソッドを作成
     self.playerNameLabel.text = @"";
@@ -99,7 +107,7 @@
     self.sevenTopLabel.text = [NSString stringWithFormat : @"%d", enemyScore];
     totalEnemyScore = enemyScore;
     self.totalEnemyLabel.text = [NSString stringWithFormat : @"%d", totalEnemyScore];
-    self.changeButton.hidden = YES;
+    
     
     
     //スタジアム画像
@@ -348,81 +356,89 @@
 }
 
 - (IBAction)setPowerButtonDown:(id)sender {
+    /*
     self.balanceButton.hidden = YES;
     self.averageButton.hidden = YES;
     self.powerButton.hidden = YES;
     self.pinchHitterButton.hidden = YES;
     self.battingButton.hidden = NO;
+    */
+     [self playerButtonDownHidden];
     playerStyle = 1;
     
     randomPlayer = arc4random() % basePlayerType; 
     
     //self.batterImage.image = [UIImage imageNamed:[[powerPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"]];
-    UIImage *playerImage = [[powerPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"];
+    
+    //UIImage *playerImage = [[powerPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"];
+    NSString *playerImage = [[powerPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"];
     self.batterImage.image = [UIImage imageNamed:playerImage];
     self.playerNameLabel.text = [[powerPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Name"];
 }
 
 - (IBAction)setBalanceButtonDown:(id)sender {
-    self.balanceButton.hidden = YES;
-    self.averageButton.hidden = YES;
-    self.powerButton.hidden = YES;
-    self.pinchHitterButton.hidden = YES;
-    self.battingButton.hidden = NO;
+    [self playerButtonDownHidden];
     playerStyle = 2;
     
     randomPlayer = arc4random() % basePlayerType;
     
     //self.batterImage.image = [UIImage imageNamed:[[balancePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"]];
-    UIImage *balancePlayer = [[balancePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"];
+    NSString *balancePlayer = [[balancePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"];
     self.batterImage.image = [UIImage imageNamed:balancePlayer];
     self.playerNameLabel.text = [[balancePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Name"];
 }
 
 - (IBAction)setAverageButtonDown:(id)sender {
-    self.balanceButton.hidden = YES;
-    self.averageButton.hidden = YES;
-    self.powerButton.hidden = YES;
-    self.pinchHitterButton.hidden = YES;
-    self.battingButton.hidden = NO;
+    [self playerButtonDownHidden];
     playerStyle = 3;
     
     randomPlayer = arc4random() % basePlayerType;
     
         
     //self.batterImage.image = [UIImage imageNamed:[[averagePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"]];
-    UIImage *averagePlayer = [[averagePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"];
+    NSString *averagePlayer = [[averagePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"];
     self.batterImage.image = [UIImage imageNamed:averagePlayer];
     self.playerNameLabel.text = [[averagePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Name"];
 }
 
 - (IBAction)setPinchHitterButtonDown:(id)sender {
-    self.balanceButton.hidden = YES;
-    self.averageButton.hidden = YES;
-    self.powerButton.hidden = YES;
-    self.pinchHitterButton.hidden = YES;
-    self.battingButton.hidden = NO;
+    [self playerButtonDownHidden];
     playerStyle = 4;
     pinchHitter = 1;
     
     randomPlayer = arc4random() % pinchHitterType;
-
    
-    
+
     //self.batterImage.image = [UIImage imageNamed:[[pinchHitterPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"]];
-    UIImage *pinchHitterPlayer = [[pinchHitterPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"];
+    NSString *pinchHitterPlayer = [[pinchHitterPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"];
     self.batterImage.image = [UIImage imageNamed:pinchHitterPlayer];
     self.playerNameLabel.text = [[pinchHitterPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Name"];
 }
 
 
+- (void)playerButtonDownHidden{
+    self.balanceButton.hidden = YES;
+    self.averageButton.hidden = YES;
+    self.powerButton.hidden = YES;
+    self.pinchHitterButton.hidden = YES;
+    self.battingButton.hidden = NO;
+    self.resultLabel.text = @"";
+    
+    self.playerNameLabel.hidden = NO;
+    //self.resultLabel.hidden = NO;
+    self.baseLabel.hidden = NO;
+    //self.baseImage.hidden = NO;
+    //self.outLabel.hidden = NO;
+}
+
+
 - (IBAction)battingButtonDown:(id)sender {    
+    battingResult = arc4random() % randamNumber;
+    [self buttonPowerAverageBalanceHiddenNo]; //メソッドの先頭に持ってきた
+    
     switch(playerStyle){
+            
         case 1:
-            battingResult = arc4random() % randamNumber;
-            
-            //battingResult = 19;
-            
             if(battingResult < 20){
                 [self homerun];
                         }
@@ -442,16 +458,9 @@
             if (battingResult >= 65) {
                 [self batterOut];
                         }
-            
-            playerStyle = 0;
-            [self buttonPowerAverageBalanceHiddenNo];
             break;
             
         case 2:
-            battingResult = arc4random() % randamNumber;
-            //battingResult = 71;
-
-            
             if (battingResult < 10) {
                 [self homerun];
                     }
@@ -471,14 +480,9 @@
             if (battingResult >= 70) {
                 [self batterOut];
                         }
-            
-            playerStyle = 0;
-            [self buttonPowerAverageBalanceHiddenNo];
             break;
             
         case 3:
-            battingResult = arc4random() % randamNumber;
-            
             if (battingResult < 5) {
                 [self homerun];
                         }
@@ -498,13 +502,9 @@
             if (battingResult >= 75) {
                 [self batterOut];
                         }
-            playerStyle = 0;
-            [self buttonPowerAverageBalanceHiddenNo];
             break;
             
         case 4:
-            battingResult = arc4random() % randamNumber;
-            
             if (battingResult < 50) {
                 [self homerun];
             }
@@ -524,23 +524,22 @@
             if (battingResult >= 95) {
                 [self batterOut];
             }
-            playerStyle = 0;
-            [self buttonPowerAverageBalanceHiddenNo];
             break;
     }
     
+    playerStyle = 0;
+
     self.battingButton.hidden = YES;
     
-    if(buttonHidden == 1){
+    /*if(buttonHidden == 1){
         self.balanceButton.hidden =YES;
         self.averageButton.hidden = YES;
         self.powerButton.hidden = YES;
-        
+      */
+    
     if(pinchHitter == 1){
         self.pinchHitterButton.hidden = YES;
         }
-            buttonHidden = 0;
-    }
 }
     
 - (IBAction)resetButtonDown:(id)sender {
@@ -548,16 +547,16 @@
 }
 
 
-
 - (void)buttonPowerAverageBalanceHiddenNo{
-    if(buttonHidden != 1){
+    //if(buttonHidden != 1){
     self.powerButton.hidden = NO;
     self.averageButton.hidden = NO;
     self.balanceButton.hidden = NO;
+        
         if(pinchHitter == 0){
-    self.pinchHitterButton.hidden = NO;
-    }
-    }
+            self.pinchHitterButton.hidden = NO;
+            }
+   // }
 }
 
 - (void)homerun{
@@ -601,9 +600,8 @@
         _baseRunnerExist.second = 0;
         _baseRunnerExist.first = 0;
         [self baseImageMethod];
-        buttonHidden = 1;
         self.resultLabel.text = @"スリーアウト!!";
-        self.baseLabel.text = @"";
+        //self.baseLabel.text = @"";
         self.outLabel.text = @"";
         self.battingButton.hidden = YES;
         self.balanceButton.hidden = YES;
@@ -611,7 +609,7 @@
         self.averageButton.hidden = YES;
         self.pinchHitterButton.hidden = YES;
         self.changeButton.hidden = NO;
-    
+        
         if(ownScore == 0){
             [self scoreDisplay:1];
             }
@@ -634,19 +632,16 @@
     
     if(totalOwnScore + ownScore > totalEnemyScore){
         [self win:0];
-        buttonHidden = 1;
             }
     
     if(totalOwnScore + ownScore < totalEnemyScore){
         self.resultLabel.text = @"敗北";
         [self scoreDisplay:1];
-        buttonHidden = 1;
     }
     
     if(totalOwnScore + ownScore == totalEnemyScore){
         self.resultLabel.text = @"引き分け";
         [self scoreDisplay:1];
-        buttonHidden = 1;
     }
 }
 
@@ -667,31 +662,26 @@
             self.resultLabel.text = @"サヨナラ勝ち!!!";
             self.nineBottomLabel.text = [NSString stringWithFormat : @"%dX", totalEnemyScore - totalOwnScore + 1];
             self.totalLabel.text = [NSString stringWithFormat : @"%dX", totalEnemyScore + 1];
-            buttonHidden = 1;
             break;
             
         case 2:
             self.resultLabel.text = @"ｻﾖﾅﾗﾎｰﾑﾗﾝ!!!";
             self.nineBottomLabel.text = [NSString stringWithFormat : @"%dX", ownScore];
-            buttonHidden = 1;
             break;
             
         case 3:
             self.resultLabel.text = @"逆転ｻﾖﾅﾗﾎｰﾑﾗﾝ!!!";
             self.nineBottomLabel.text = [NSString stringWithFormat : @"%dX", ownScore];
-            buttonHidden = 1;
             break;
             
         case 4:
             self.resultLabel.text = @"ｻﾖﾅﾗ満塁ﾎｰﾑﾗﾝ!!!";
             self.nineBottomLabel.text = [NSString stringWithFormat : @"%dX", ownScore];
-            buttonHidden = 1;
             break;
             
         case 5:
             self.resultLabel.text = @"逆転ｻﾖﾅﾗ満塁ﾎｰﾑﾗﾝ!!!";
             self.nineBottomLabel.text = [NSString stringWithFormat : @"%dX", ownScore];
-            buttonHidden = 1;
             break;
 
     }
@@ -703,12 +693,18 @@
     self.powerButton.hidden = NO;
     self.averageButton.hidden = NO;
     self.balanceButton.hidden = NO;
+    
     if(pinchHitter == 0){
     self.pinchHitterButton.hidden = NO;
-    }
+        }
+    
     self.changeButton.hidden = YES;
+    self.baseLabel.hidden = YES;
+    self.playerNameLabel.hidden = YES;
+    
     self.playerNameLabel.text = @"";
     self.resultLabel.text = @"チェンジ";
+    self.baseLabel.text = @"ランナーなし";
     self.batterImage.image = [UIImage imageNamed:@""];
     self.baseImage.image = [UIImage imageNamed:@"noRunner.png"];
     inning = inning + 1;

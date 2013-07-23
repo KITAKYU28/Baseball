@@ -97,8 +97,6 @@
 		F380EACD179E5CD5008AF6E4 /* uchikawa.png in Resources */ = {isa = PBXBuildFile; fileRef = F380EACC179E5CD5008AF6E4 /* uchikawa.png */; };
 		F380EACF179E650A008AF6E4 /* wadaKazuhiro.png in Resources */ = {isa = PBXBuildFile; fileRef = F380EACE179E650A008AF6E4 /* wadaKazuhiro.png */; };
 		F380EAD1179E659D008AF6E4 /* maedaTomonori.png in Resources */ = {isa = PBXBuildFile; fileRef = F380EAD0179E659D008AF6E4 /* maedaTomonori.png */; };
-		F380EAD3179E676B008AF6E4 /* Tokada.png in Resources */ = {isa = PBXBuildFile; fileRef = F380EAD2179E676B008AF6E4 /* Tokada.png */; };
-		F380EAD5179E6777008AF6E4 /* kurihara.png in Resources */ = {isa = PBXBuildFile; fileRef = F380EAD4179E6777008AF6E4 /* kurihara.png */; };
 		F390F1EB179D5DF4001DB7DA /* runner.png in Resources */ = {isa = PBXBuildFile; fileRef = F390F1EA179D5DF4001DB7DA /* runner.png */; };
 		F39B8F0A179D51AE0046B903 /* runnerFirst.png in Resources */ = {isa = PBXBuildFile; fileRef = F39B8F07179D51AE0046B903 /* runnerFirst.png */; };
 		F39B8F0B179D51AE0046B903 /* runnerSecond.png in Resources */ = {isa = PBXBuildFile; fileRef = F39B8F08179D51AE0046B903 /* runnerSecond.png */; };
@@ -211,8 +209,8 @@
 		F380EACC179E5CD5008AF6E4 /* uchikawa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uchikawa.png; sourceTree = "<group>"; };
 		F380EACE179E650A008AF6E4 /* wadaKazuhiro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wadaKazuhiro.png; sourceTree = "<group>"; };
 		F380EAD0179E659D008AF6E4 /* maedaTomonori.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maedaTomonori.png; sourceTree = "<group>"; };
-		F380EAD2179E676B008AF6E4 /* Tokada.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tokada.png; sourceTree = "<group>"; };
-		F380EAD4179E6777008AF6E4 /* kurihara.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kurihara.png; sourceTree = "<group>"; };
+		F380EAD6179E6D36008AF6E4 /* kurihara.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kurihara.png; sourceTree = "<group>"; };
+		F380EAD8179E6D42008AF6E4 /* Tokada.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tokada.png; sourceTree = "<group>"; };
 		F390F1EA179D5DF4001DB7DA /* runner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runner.png; sourceTree = "<group>"; };
 		F39B8F07179D51AE0046B903 /* runnerFirst.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runnerFirst.png; sourceTree = "<group>"; };
 		F39B8F08179D51AE0046B903 /* runnerSecond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runnerSecond.png; sourceTree = "<group>"; };
@@ -318,15 +316,15 @@
 				0C15A96D16AF64B000347892 /* kitagawa.png */,
 				0C15A96E16AF64B100347892 /* kokubo.jpg */,
 				0C15A96F16AF64B200347892 /* kousien.png */,
-				F380EAD4179E6777008AF6E4 /* kurihara.png */,
 				0C15A97116AF64B300347892 /* kuriyama.png */,
 				0C15A97216AF64B400347892 /* kyousera.png */,
-				F380EAD2179E676B008AF6E4 /* Tokada.png */,
 				F380EACC179E5CD5008AF6E4 /* uchikawa.png */,
 				0C15A97416AF64B500347892 /* marine.png */,
 				F380EAD0179E659D008AF6E4 /* maedaTomonori.png */,
+				F380EAD6179E6D36008AF6E4 /* kurihara.png */,
 				0C15A97516AF64B900347892 /* matsuiKazuo.png */,
 				0C15A97616AF64BB00347892 /* matsunaka.png */,
+				F380EAD8179E6D42008AF6E4 /* Tokada.png */,
 				0C15A97716AF64BC00347892 /* matuda.png */,
 				0C15A97816AF64BC00347892 /* mirezzi.png */,
 				F380EAB8179E4EA7008AF6E4 /* nakamuraTakeya.png */,
@@ -548,8 +546,6 @@
 				F380EACD179E5CD5008AF6E4 /* uchikawa.png in Resources */,
 				F380EACF179E650A008AF6E4 /* wadaKazuhiro.png in Resources */,
 				F380EAD1179E659D008AF6E4 /* maedaTomonori.png in Resources */,
-				F380EAD3179E676B008AF6E4 /* Tokada.png in Resources */,
-				F380EAD5179E6777008AF6E4 /* kurihara.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -80,5 +80,7 @@ typedef struct baseRunnerExist {
 - (void)setStadiumBackground;
 - (void)baseImageMethod;
 - (void)baseRunnerText;
+- (void)playerButtonDownHidden;
+
 
 @end
