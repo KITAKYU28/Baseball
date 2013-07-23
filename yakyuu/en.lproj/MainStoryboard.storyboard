@@ -430,7 +430,7 @@
         <image name="peni.png" width="196" height="257"/>
         <image name="runner.png" width="148" height="168"/>
         <image name="scorebord2.jpg" width="181" height="64"/>
-        <image name="ランナー無.jpg" width="170" height="170"/>
+        <image name="ランナー無.jpg" width="16" height="16"/>
     </resources>
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">

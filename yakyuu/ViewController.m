@@ -91,7 +91,7 @@
     self.pinchHitterButton.hidden = NO;
     self.battingButton.hidden = YES;
     self.batterImage.image = [UIImage imageNamed:@""];  //hiddenのメソッドを作ってもいいかも
-    self.baseImage.image = [UIImage imageNamed:@"ランナー無.jpg"]; //画像の名前も英語。もしくは画像のメソッドを作成
+    self.baseImage.image = [UIImage imageNamed:@"noRunner.png"]; //画像の名前も英語。もしくは画像のメソッドを作成
     self.playerNameLabel.text = @"";
     enemyScore = arc4random() % randomEnemyScore;       //メソッドとして抽出したほうがいいかも？
     //self.playerNameLabel.font = [UIFont boldSystemFontOfSize:nameFontSize];
@@ -122,7 +122,7 @@
     
     //パワープレイヤー画像
     NSMutableDictionary *nakamuraTakeya = [NSMutableDictionary dictionary];
-    [nakamuraTakeya setObject:@"p中村剛也.jpg" forKey:@"Image"];
+    [nakamuraTakeya setObject:@"nakamuraTakeya.png" forKey:@"Image"];
     [nakamuraTakeya setObject:@"中村剛" forKey:@"Name"];
     NSMutableDictionary *balentien = [NSMutableDictionary dictionary];
     [balentien setObject:@"balentien.png" forKey:@"Image"];
@@ -131,19 +131,19 @@
     [pena setObject:@"pena2.png" forKey:@"Image"];
     [pena setObject:@"ペーニャ" forKey:@"Name"];
     NSMutableDictionary *blanco = [NSMutableDictionary dictionary];
-    [blanco setObject:@"branco.jpg" forKey:@"Image"];
+    [blanco setObject:@"branco.png" forKey:@"Image"];
     [blanco setObject:@"ﾌﾞﾗﾝｺ" forKey:@"Name"];
     NSMutableDictionary *nakata = [NSMutableDictionary dictionary];
-    [nakata setObject:@"nakata.jpg" forKey:@"Image"];
+    [nakata setObject:@"nakata.png" forKey:@"Image"];
     [nakata setObject:@"中田翔" forKey:@"Name"];
     NSMutableDictionary *tokada = [NSMutableDictionary dictionary];
-    [tokada setObject:@"tokada.jpg" forKey:@"Image"];
+    [tokada setObject:@"Tokada.png" forKey:@"Image"];
     [tokada setObject:@"T−岡田" forKey:@"Name"];
     NSMutableDictionary *tsutsugou = [NSMutableDictionary dictionary];
     [tsutsugou setObject:@"tsutsugo.png" forKey:@"Image"];
     [tsutsugou setObject:@"筒香" forKey:@"Name"];
     NSMutableDictionary *abe = [NSMutableDictionary dictionary];
-    [abe setObject:@"abe.jpg" forKey:@"Image"];
+    [abe setObject:@"abe.png" forKey:@"Image"];
     [abe setObject:@"阿部" forKey:@"Name"];
     NSMutableDictionary *fernandez = [NSMutableDictionary dictionary];
     [fernandez setObject:@"feru.png" forKey:@"Image"];
@@ -152,7 +152,7 @@
     [kim setObject:@"kimu.png" forKey:@"Image"];
     [kim setObject:@"金泰均" forKey:@"Name"];
     NSMutableDictionary *brazell = [NSMutableDictionary dictionary];
-    [brazell setObject:@"pブラゼル.jpg" forKey:@"Image"];
+    [brazell setObject:@"brazell.png" forKey:@"Image"];
     [brazell setObject:@"ﾌﾞﾗｾﾞﾙ" forKey:@"Name"];
     NSMutableDictionary *dobayashi = [NSMutableDictionary dictionary];
     [dobayashi setObject:@"doubayashi.png" forKey:@"Image"];
@@ -175,28 +175,28 @@
     
     //バランスプレイヤー画像
     NSMutableDictionary *matsuda = [NSMutableDictionary dictionary];
-    [matsuda setObject:@"b松田.jpg" forKey:@"Image"];
+    [matsuda setObject:@"matsuda.png" forKey:@"Image"];
     [matsuda setObject:@"松田" forKey:@"Name"];
     NSMutableDictionary *saburo = [NSMutableDictionary dictionary];
-    [saburo setObject:@"saburo.jpg" forKey:@"Image"];
+    [saburo setObject:@"saburo.png" forKey:@"Image"];
     [saburo setObject:@"ｻﾌﾞﾛｰ" forKey:@"Name"];
     NSMutableDictionary *toritani = [NSMutableDictionary dictionary];
-    [toritani setObject:@"toritani.jpg" forKey:@"Image"];
+    [toritani setObject:@"toritani.png" forKey:@"Image"];
     [toritani setObject:@"鳥谷" forKey:@"Name"];
     NSMutableDictionary *hijirisawa = [NSMutableDictionary dictionary];
-    [hijirisawa setObject:@"hijirisawa.jpg" forKey:@"Image"];
-    [hijirisawa setObject:@"聖澤" forKey:@"Name"];
+    [hijirisawa setObject:@"fujita.png" forKey:@"Image"];
+    [hijirisawa setObject:@"藤田" forKey:@"Name"];
     NSMutableDictionary *tanakaken = [NSMutableDictionary dictionary];
     [tanakaken setObject:@"tanakaken.png" forKey:@"Image"];
     [tanakaken setObject:@"田中賢" forKey:@"Name"];
     NSMutableDictionary *kurihara = [NSMutableDictionary dictionary];
-    [kurihara setObject:@"kurihara.jpg" forKey:@"Image"];
+    [kurihara setObject:@"kurihara.png" forKey:@"Image"];
     [kurihara setObject:@"栗原" forKey:@"Name"];
     NSMutableDictionary *morino = [NSMutableDictionary dictionary];
-    [morino setObject:@"morino.jpg" forKey:@"Image"];
+    [morino setObject:@"morino.png" forKey:@"Image"];
     [morino setObject:@"森野" forKey:@"Name"];
     NSMutableDictionary *tamura = [NSMutableDictionary dictionary];
-    [tamura setObject:@"tamura.jpg" forKey:@"Image"];
+    [tamura setObject:@"tamura.png" forKey:@"Image"];
     [tamura setObject:@"多村" forKey:@"Name"];
     NSMutableDictionary *ortiz = [NSMutableDictionary dictionary];
     [ortiz setObject:@"otiz.png" forKey:@"Image"];
@@ -228,40 +228,40 @@
     
     //アベレージプレイヤー画像
     NSMutableDictionary *murton = [NSMutableDictionary dictionary];
-    [murton setObject:@"aマートン.jpg" forKey:@"Image"];
+    [murton setObject:@"murton.png" forKey:@"Image"];
     [murton setObject:@"ﾏｰﾄﾝ" forKey:@"Name"];
     NSMutableDictionary *uchikawa = [NSMutableDictionary dictionary];
-    [uchikawa setObject:@"a内川.jpg" forKey:@"Image"];
+    [uchikawa setObject:@"uchikawa.png" forKey:@"Image"];
     [uchikawa setObject:@"内川" forKey:@"Name"];
     NSMutableDictionary *imae = [NSMutableDictionary dictionary];
-    [imae setObject:@"imae.jpg" forKey:@"Image"];
+    [imae setObject:@"imae.png" forKey:@"Image"];
     [imae setObject:@"今江" forKey:@"Name"];
     NSMutableDictionary *hirose = [NSMutableDictionary dictionary];
-    [hirose setObject:@"hirose.jpg" forKey:@"Image"];
+    [hirose setObject:@"hirose.png" forKey:@"Image"];
     [hirose setObject:@"廣瀬" forKey:@"Name"];
     NSMutableDictionary *chono = [NSMutableDictionary dictionary];
-    [chono setObject:@"b長野.jpg" forKey:@"Image"];
+    [chono setObject:@"chono.png" forKey:@"Image"];
     [chono setObject:@"長野" forKey:@"Name"];
     NSMutableDictionary *miyamoto = [NSMutableDictionary dictionary];
-    [miyamoto setObject:@"miyamoto.jpg" forKey:@"Image"];
+    [miyamoto setObject:@"miyamoto.png" forKey:@"Image"];
     [miyamoto setObject:@"宮本" forKey:@"Name"];
     NSMutableDictionary *teppei = [NSMutableDictionary dictionary];
-    [teppei setObject:@"teppei.jpg" forKey:@"Image"];
+    [teppei setObject:@"teppei.png" forKey:@"Image"];
     [teppei setObject:@"鉄平" forKey:@"Name"];
     NSMutableDictionary *sakaguchi = [NSMutableDictionary dictionary];
-    [sakaguchi setObject:@"sakaguchi.jpg" forKey:@"Image"];
+    [sakaguchi setObject:@"sakaguchi.png" forKey:@"Image"];
     [sakaguchi setObject:@"坂口" forKey:@"Name"];
     NSMutableDictionary *itoi = [NSMutableDictionary dictionary];
-    [itoi setObject:@"itoi.jpg" forKey:@"Image"];
+    [itoi setObject:@"itoi.png" forKey:@"Image"];
     [itoi setObject:@"糸井" forKey:@"Name"];
     NSMutableDictionary *oshima = [NSMutableDictionary dictionary];
     [oshima setObject:@"ooshima.png" forKey:@"Image"];
     [oshima setObject:@"大島" forKey:@"Name"];
     NSMutableDictionary *kinjo = [NSMutableDictionary dictionary];
-    [kinjo setObject:@"kinnjo.png" forKey:@"Image"];
+    [kinjo setObject:@"kinjo.png" forKey:@"Image"];
     [kinjo setObject:@"金城" forKey:@"Name"];
     NSMutableDictionary *kuriyama = [NSMutableDictionary dictionary];
-    [kuriyama setObject:@"kuriyama.jpg" forKey:@"Image"];
+    [kuriyama setObject:@"kuriyama.png" forKey:@"Image"];
     [kuriyama setObject:@"栗山" forKey:@"Name"];
     
     averagePlayerArray = [NSMutableArray array];
@@ -281,40 +281,40 @@
     
     //代打プレイヤー画像
     NSMutableDictionary *matsunaka = [NSMutableDictionary dictionary];
-    [matsunaka setObject:@"matsunaka.jpg" forKey:@"Image"];
+    [matsunaka setObject:@"matsunaka.png" forKey:@"Image"];
     [matsunaka setObject:@"松中" forKey:@"Name"];
     NSMutableDictionary *inaba = [NSMutableDictionary dictionary];
-    [inaba setObject:@"inaba.jpg" forKey:@"Image"];
+    [inaba setObject:@"inaba.png" forKey:@"Image"];
     [inaba setObject:@"稲葉" forKey:@"Name"];
     NSMutableDictionary *nakajima = [NSMutableDictionary dictionary];
-    [nakajima setObject:@"b中島.jpg" forKey:@"Image"];
+    [nakajima setObject:@"nakajima.png" forKey:@"Image"];
     [nakajima setObject:@"中島" forKey:@"Name"];
     NSMutableDictionary *matsui = [NSMutableDictionary dictionary];
-    [matsui setObject:@"matsui.jpg" forKey:@"Image"];
+    [matsui setObject:@"matsuiKazuo" forKey:@"Image"];
     [matsui setObject:@"松井稼" forKey:@"Name"];
     NSMutableDictionary *ideho = [NSMutableDictionary dictionary];
-    [ideho setObject:@"ideho.jpg" forKey:@"Image"];
+    [ideho setObject:@"ideho.png" forKey:@"Image"];
     [ideho setObject:@"李大浩" forKey:@"Name"];
     NSMutableDictionary *fukuura = [NSMutableDictionary dictionary];
-    [fukuura setObject:@"a福浦.jpg" forKey:@"Image"];
+    [fukuura setObject:@"fukuura.png" forKey:@"Image"];
     [fukuura setObject:@"福浦" forKey:@"Name"];
     NSMutableDictionary *ogasawara = [NSMutableDictionary dictionary];
-    [ogasawara setObject:@"ogasawara.jpg" forKey:@"Image"];
+    [ogasawara setObject:@"ogasawara.png" forKey:@"Image"];
     [ogasawara setObject:@"小笠原" forKey:@"Name"];
     NSMutableDictionary *kanemoto = [NSMutableDictionary dictionary];
-    [kanemoto setObject:@"kanemoto.jpg" forKey:@"Image"];
+    [kanemoto setObject:@"kanemoto.png" forKey:@"Image"];
     [kanemoto setObject:@"金本" forKey:@"Name"];
     NSMutableDictionary *wada = [NSMutableDictionary dictionary];
-    [wada setObject:@"wada.jpg" forKey:@"Image"];
+    [wada setObject:@"wadaKazuhiro.png" forKey:@"Image"];
     [wada setObject:@"和田" forKey:@"Name"];
     NSMutableDictionary *maedatomo = [NSMutableDictionary dictionary];
-    [maedatomo setObject:@"maedatomo.jpg" forKey:@"Image"];
+    [maedatomo setObject:@"maedaTomonori.png" forKey:@"Image"];
     [maedatomo setObject:@"前田智" forKey:@"Name"];
     NSMutableDictionary *aoki = [NSMutableDictionary dictionary];
-    [aoki setObject:@"aoki.jpg" forKey:@"Image"];
+    [aoki setObject:@"aoki.png" forKey:@"Image"];
     [aoki setObject:@"青木" forKey:@"Name"];
     NSMutableDictionary *ramirez = [NSMutableDictionary dictionary];
-    [ramirez setObject:@"ramiresu.jpg" forKey:@"Image"];
+    [ramirez setObject:@"ramiresu.png" forKey:@"Image"];
     [ramirez setObject:@"ﾗﾐﾚｽ" forKey:@"Name"];
     NSMutableDictionary *yamazakiSusumu = [NSMutableDictionary dictionary];
     [yamazakiSusumu setObject:@"yamazaki.png" forKey:@"Image"];
@@ -710,7 +710,7 @@
     self.playerNameLabel.text = @"";
     self.resultLabel.text = @"チェンジ";
     self.batterImage.image = [UIImage imageNamed:@""];
-    self.baseImage.image = [UIImage imageNamed:@"ランナー無.jpg"];
+    self.baseImage.image = [UIImage imageNamed:@"noRunner.png"];
     inning = inning + 1;
     totalOwnScore = totalOwnScore + ownScore;
     ownScore = 0;
