@@ -631,8 +631,12 @@
     self.battingButton.hidden = YES;
     self.balanceButton.hidden = YES;
     self.powerButton.hidden = YES;
-    self.pinchHitterButton.hidden = YES;
     self.averageButton.hidden = YES;
+    
+    if(pinchHitter == 0){
+    self.pinchHitterButton.hidden = YES;
+    }
+    
     self.changeButton.hidden = YES;
     
     if(totalOwnScore + ownScore > totalEnemyScore){
@@ -651,7 +655,8 @@
 }
 
 - (void)win:(int)number{
-    [self scoreDisplay:1];
+    //[self scoreDisplay:1];
+    
     
     if(inning == 9){
         if(totalOwnScore + ownScore > totalEnemyScore){
@@ -698,7 +703,9 @@
     }
 }
 
+
 - (IBAction)changeButtonDown:(id)sender {
+    
     self.powerButton.hidden = NO;
     self.averageButton.hidden = NO;
     self.balanceButton.hidden = NO;
@@ -721,8 +728,9 @@
     totalOwnScore = totalOwnScore + ownScore;
     ownScore = 0;
     self.totalLabel.text = [NSString stringWithFormat : @"%d", totalOwnScore];
-    [self scoreDisplay:2];
+    [self scoreDisplay:2];      //動かない
 }
+
 
 - (void)scoreDisplay:(int)number{
     switch(number){
@@ -755,14 +763,14 @@
                 case 8:
                     enemyScore = arc4random() % randomEnemyScore;
                     self.eightTopLabel.text = [NSString stringWithFormat:@"%d", enemyScore];
-                    totalEnemyScore = totalEnemyScore+enemyScore;
+                    totalEnemyScore = totalEnemyScore + enemyScore;
                     self.totalEnemyLabel.text = [NSString stringWithFormat:@"%d", totalEnemyScore];
                     break;
                     
                 case 9:
                     enemyScore = arc4random() % randomEnemyScore;
                     self.nineTopLabel.text = [NSString stringWithFormat:@"%d", enemyScore];
-                    totalEnemyScore = totalEnemyScore+enemyScore;
+                    totalEnemyScore = totalEnemyScore + enemyScore;
                     self.totalEnemyLabel.text = [NSString stringWithFormat:@"%d", totalEnemyScore];
                     if(totalOwnScore > totalEnemyScore){
                         [self winLose];
@@ -772,6 +780,8 @@
         break;
 }
 }
+
+
 
 /*
 - (void)runner:(int)number{
@@ -1128,6 +1138,7 @@
                 _baseRunnerExist.third = 0;
                 ownScore = ownScore + 1;
                 [self win:1];
+                self.resultLabel.text = @"タイムリーヒット!";
             }
             
             if(_baseRunnerExist.second == 1){
@@ -1209,7 +1220,7 @@
             break;
             
     }
-    
+    [self scoreDisplay:1];
     [self baseImageMethod];
     [self baseRunnerText];
 }

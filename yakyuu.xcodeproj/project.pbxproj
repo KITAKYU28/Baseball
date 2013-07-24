@@ -62,9 +62,7 @@
 		0C15A9EC16AF64ED00347892 /* noRunner.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A9A116AF64EB00347892 /* noRunner.png */; };
 		0C15A9EE16AF6A1B00347892 /* penny.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A9ED16AF6A1B00347892 /* penny.png */; };
 		0C15A9F016AF6E9800347892 /* yamazaki.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C15A9EF16AF6E9800347892 /* yamazaki.png */; };
-		0C56F11C16A00D0200C3E4A1 /* homerun.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C56F0F516A00D0200C3E4A1 /* homerun.jpg */; };
 		0C56F13016A00D0200C3E4A1 /* ランナー一塁三塁.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C56F10916A00D0200C3E4A1 /* ランナー一塁三塁.jpg */; };
-		0C56F13716A00D0200C3E4A1 /* 新規 Microsoft Office Excel ワークシート.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 0C56F11016A00D0200C3E4A1 /* 新規 Microsoft Office Excel ワークシート.xlsx */; };
 		0C6822DA169D4958000814AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C6822D9169D4958000814AD /* UIKit.framework */; };
 		0C6822DC169D4958000814AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C6822DB169D4958000814AD /* Foundation.framework */; };
 		0C6822DE169D4958000814AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C6822DD169D4958000814AD /* CoreGraphics.framework */; };
@@ -169,9 +167,7 @@
 		0C15A9A116AF64EB00347892 /* noRunner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noRunner.png; sourceTree = "<group>"; };
 		0C15A9ED16AF6A1B00347892 /* penny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = penny.png; sourceTree = "<group>"; };
 		0C15A9EF16AF6E9800347892 /* yamazaki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yamazaki.png; sourceTree = "<group>"; };
-		0C56F0F516A00D0200C3E4A1 /* homerun.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = homerun.jpg; path = "../../../../Desktop/OOP のコピー/homerun.jpg"; sourceTree = "<group>"; };
 		0C56F10916A00D0200C3E4A1 /* ランナー一塁三塁.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "ランナー一塁三塁.jpg"; path = "../../../../Desktop/OOP のコピー/ランナー一塁三塁.jpg"; sourceTree = "<group>"; };
-		0C56F11016A00D0200C3E4A1 /* 新規 Microsoft Office Excel ワークシート.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "新規 Microsoft Office Excel ワークシート.xlsx"; path = "../../../../Desktop/OOP のコピー/新規 Microsoft Office Excel ワークシート.xlsx"; sourceTree = "<group>"; };
 		0C6822D5169D4958000814AD /* yakyuu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yakyuu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C6822D9169D4958000814AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0C6822DB169D4958000814AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -288,7 +284,6 @@
 		0C6822E0169D4958000814AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0C56F0F516A00D0200C3E4A1 /* homerun.jpg */,
 				F380EAB4179E4CED008AF6E4 /* abe.png */,
 				0C15A95816AF64AB00347892 /* aoki.png */,
 				0C15A95916AF64AB00347892 /* murton.png */,
@@ -365,7 +360,6 @@
 				F39B8F07179D51AE0046B903 /* runnerFirst.png */,
 				F39B8F08179D51AE0046B903 /* runnerSecond.png */,
 				F39B8F09179D51AE0046B903 /* runnerThird.png */,
-				0C56F11016A00D0200C3E4A1 /* 新規 Microsoft Office Excel ワークシート.xlsx */,
 				0C6822E2169D4958000814AD /* InfoPlist.strings */,
 				0C6822E5169D4958000814AD /* main.m */,
 				0C6822E7169D4958000814AD /* yakyuu-Prefix.pch */,
@@ -554,9 +548,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C682308169D4959000814AD /* InfoPlist.strings in Resources */,
-				0C56F11C16A00D0200C3E4A1 /* homerun.jpg in Resources */,
 				0C56F13016A00D0200C3E4A1 /* ランナー一塁三塁.jpg in Resources */,
-				0C56F13716A00D0200C3E4A1 /* 新規 Microsoft Office Excel ワークシート.xlsx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
