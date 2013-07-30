@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #define randomEnemyScore 11
-//#define nameFontSize 20
 #define stadiumType 12
 #define basePlayerType 12
 #define pinchHitterType 13
@@ -20,8 +19,6 @@
     int ownScore;
     int enemyScore;
     int outCount;
-    //int whichBaseIsRunner;
-    //int buttonHidden;    不要だったので削除
     int randomPlayer;
     int totalEnemyScore;
     int totalOwnScore;
@@ -62,7 +59,6 @@
     
     outCount = 0;
     ownScore = 0;
-    //whichBaseIsRunner = 0; //enumで、bitで
     _baseRunnerExist.third = 0;
     _baseRunnerExist.second = 0;
     _baseRunnerExist.first = 0;
@@ -93,16 +89,13 @@
     self.battingButton.hidden = YES;
     self.changeButton.hidden = YES;
     self.playerNameLabel.hidden = YES;
-    //self.resultLabel.hidden = YES;
     self.baseLabel.hidden = YES;
-    //self.baseImage.hidden = YES;
-    //self.outLabel.hidden = YES;
+
     
-    self.batterImage.image = [UIImage imageNamed:@""];  //hiddenのメソッドを作ってもいいかも。画像のリセットも意味
-    self.baseImage.image = [UIImage imageNamed:@"noRunner.png"]; //画像の名前も英語。もしくは画像のメソッドを作成
+    self.batterImage.image = [UIImage imageNamed:@""];
+    self.baseImage.image = [UIImage imageNamed:@"noRunner.png"];
     self.playerNameLabel.text = @"";
-    enemyScore = arc4random() % randomEnemyScore;       //メソッドとして抽出したほうがいいかも？
-    //self.playerNameLabel.font = [UIFont boldSystemFontOfSize:nameFontSize];
+    enemyScore = arc4random() % randomEnemyScore;      
     
     self.sevenTopLabel.text = [NSString stringWithFormat : @"%d", enemyScore];
     totalEnemyScore = enemyScore;
@@ -112,7 +105,7 @@
     
     //スタジアム画像
     stadiumBackgroundArray = [NSMutableArray array];
-    [stadiumBackgroundArray addObject:@"yahoo.png"];     //メンバー変数を登録、initializeに画像を書く
+    [stadiumBackgroundArray addObject:@"yahoo.png"];    
     [stadiumBackgroundArray addObject:@"kousien.png"];
     [stadiumBackgroundArray addObject:@"kyousera.png"];
     [stadiumBackgroundArray addObject:@"marine.png"];
@@ -351,28 +344,15 @@
     UIImage *stadiumImage = [UIImage imageNamed:[stadiumBackgroundArray objectAtIndex:stadiumNumber]];
     self.view.backgroundColor = [UIColor colorWithPatternImage:stadiumImage];
     
-    //整理する
-    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:[stadiumBackgroundArray objectAtIndex:stadiumNumber]]];
-    
 }
 
 
 - (IBAction)setPowerButtonDown:(id)sender {
-    /*
-    self.balanceButton.hidden = YES;
-    self.averageButton.hidden = YES;
-    self.powerButton.hidden = YES;
-    self.pinchHitterButton.hidden = YES;
-    self.battingButton.hidden = NO;
-    */
      [self playerButtonDownHidden];
     playerStyle = 1;
     
     randomPlayer = arc4random() % basePlayerType; 
     
-    //self.batterImage.image = [UIImage imageNamed:[[powerPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"]];
-    
-    //UIImage *playerImage = [[powerPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"];
     NSString *playerImage = [[powerPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"];
     self.batterImage.image = [UIImage imageNamed:playerImage];
     self.playerNameLabel.text = [[powerPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Name"];
@@ -385,7 +365,6 @@
     
     randomPlayer = arc4random() % basePlayerType;
     
-    //self.batterImage.image = [UIImage imageNamed:[[balancePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"]];
     NSString *balancePlayer = [[balancePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"];
     self.batterImage.image = [UIImage imageNamed:balancePlayer];
     self.playerNameLabel.text = [[balancePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Name"];
@@ -398,8 +377,6 @@
     
     randomPlayer = arc4random() % basePlayerType;
     
-        
-    //self.batterImage.image = [UIImage imageNamed:[[averagePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"]];
     NSString *averagePlayer = [[averagePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"];
     self.batterImage.image = [UIImage imageNamed:averagePlayer];
     self.playerNameLabel.text = [[averagePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Name"];
@@ -413,8 +390,6 @@
     
     randomPlayer = arc4random() % pinchHitterType;
    
-
-    //self.batterImage.image = [UIImage imageNamed:[[pinchHitterPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"]];
     NSString *pinchHitterPlayer = [[pinchHitterPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"];
     self.batterImage.image = [UIImage imageNamed:pinchHitterPlayer];
     self.playerNameLabel.text = [[pinchHitterPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Name"];
@@ -443,7 +418,7 @@
 
     switch(playerStyle){
         case 1:
-            battingResult = 10;
+           //battingResult = 10;
             if(battingResult < 20){
                 [self homerun];
                         }
@@ -467,7 +442,7 @@
             
         case 2:
             
-            battingResult = 90;
+            //battingResult = 90;
             if (battingResult < 10) {
                 [self homerun];
                     }
@@ -537,12 +512,6 @@
     playerStyle = 0;
 
     self.battingButton.hidden = YES;
-    
-    /*if(buttonHidden == 1){
-        self.balanceButton.hidden =YES;
-        self.averageButton.hidden = YES;
-        self.powerButton.hidden = YES;
-      */
     
     if(pinchHitter == 1){
         self.pinchHitterButton.hidden = YES;
@@ -783,362 +752,21 @@
 
 
 
-/*
-- (void)runner:(int)number{
-    switch(whichBaseIsRunner){
-        //ランナー無し
-        case 0:
-            switch(number){
-            //ランナー一塁
-            case 1:
-                whichBaseIsRunner = 1;
-                self.baseLabel.text = @"ランナー1塁";
-                    self.baseImage.image = [UIImage imageNamed:@"ランナー一塁.jpg"];
-                    break;
-                
-            //ランナー二塁
-            case 2:
-                whichBaseIsRunner = 2;
-                self.baseLabel.text = @"ランナー2塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー二塁.jpg"];
-                    break;
-                
-            //ランナー三塁
-            case 3:
-                whichBaseIsRunner = 3;
-                self.baseLabel.text = @"ランナー3塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー三塁.jpg"];
-                    break;
-                
-            //ランナー無し、得点1
-            case 4:
-                whichBaseIsRunner = 0;
-                ownScore = ownScore + 1;
-                [self score:1];
-                self.baseLabel.text = @"ランナー無し";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー無.jpg"];
-                    [self win:2];
-                    break;
-        }
-            break;
-    
-    //ランナー一塁
-    case 1:
-        switch(number){
-                //ランナー一、二塁
-            case 1:
-                whichBaseIsRunner = 12;
-                self.baseLabel.text = @"ランナー1、2塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー一塁二塁.jpg"];
-                break;
-                
-                //ランナー二、三塁
-            case 2:
-                whichBaseIsRunner = 23;
-                self.baseLabel.text = @"ランナー2、3塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー二塁三塁.jpg"];
-                break;
-                
-                //ランナー三塁、得点1
-            case 3:
-                whichBaseIsRunner = 3;
-                ownScore = ownScore + 1;
-                [self score:1];
-                self.baseLabel.text = @"ランナー3塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー三塁.jpg"];
-                [self win:1];
-                break;
-            
-                //ランナー無し、得点2
-            case 4:
-                whichBaseIsRunner = 0;
-                ownScore = ownScore + 2;
-                [self score:1];
-                self.baseLabel.text = @"ランナー無し";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー無.jpg"];
-                [self win:2];
-                break;
-
-        }
-            break;
-    
-    //ランナー二塁
-    case 2:
-        switch(number){
-                //ランナー一、三塁
-            case 1:
-                whichBaseIsRunner = 13;
-                self.baseLabel.text = @"ランナー1、3塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー一塁三塁.jpg"];
-                break;
-                
-                //ランナー二塁、得点1
-            case 2:
-                whichBaseIsRunner = 2;
-                ownScore = ownScore + 1;
-                [self score:1];
-                self.baseLabel.text = @"ランナー2塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー二塁.jpg"];
-                [self win:1];
-                break;
-                
-                //ランナー三塁、得点1
-            case 3:
-                whichBaseIsRunner = 3;
-                ownScore = ownScore + 1;
-                [self score:1];
-                self.baseLabel.text = @"ランナー3塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー三塁.jpg"];
-                [self win:1];
-                break;
-                
-                //ランナー無し、得点2
-            case 4:
-                whichBaseIsRunner = 0;
-                ownScore = ownScore + 2;
-                [self score:1];
-                self.baseLabel.text = @"ランナー無し";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー無.jpg"];
-                [self win:2];
-                break;
-        }
-            break;
-    
-    //ランナー三塁
-    case 3:
-        switch(number){
-                //ランナー一塁、得点1
-            case 1:
-                whichBaseIsRunner = 1;
-                ownScore = ownScore + 1;
-                [self score:1];
-                self.baseLabel.text = @"ランナー1塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー一塁.jpg"];
-                [self win:1];
-                break;
-                
-                //ランナー二塁、得点1
-            case 2:
-                whichBaseIsRunner = 2;
-                ownScore = ownScore + 1;
-                [self score:1];
-                self.baseLabel.text = @"ランナー2塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー二塁.jpg"];
-                [self win:1];
-                break;
-                
-                //ランナー三塁、得点1
-            case 3:
-                whichBaseIsRunner = 3;
-                ownScore = ownScore + 1;
-                [self score:1];
-                self.baseLabel.text = @"ランナー3塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー三塁.jpg"];
-                [self win:1];
-                break;
-                
-                //ランナー無し、得点2
-            case 4:
-                whichBaseIsRunner = 0;
-                ownScore = ownScore + 2;
-                [self score:1];
-                self.baseLabel.text = @"ランナー無し";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー無.jpg"];
-                [self win:2];
-                break;
-        }
-            break;
-
-    //ランナー一、二塁
-    case 12:
-        switch(number){
-                //ランナー満塁
-            case 1:
-                whichBaseIsRunner = 4;
-                self.baseLabel.text = @"ランナー満塁!!";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー満塁.jpg"];
-                break;
-                
-                //ランナー二、三塁、得点1
-            case 2:
-                whichBaseIsRunner = 23;
-                ownScore = ownScore + 1;
-                [self score:1];
-                self.baseLabel.text = @"ランナー2、3塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー二塁三塁.jpg"];
-                [self win:1];
-                break;
-                
-                //ランナー三塁、得点2
-            case 3:
-                whichBaseIsRunner = 3;
-                ownScore = ownScore + 2;
-                [self score:1];
-                self.baseLabel.text = @"ランナー3塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー三塁.jpg"];
-                [self win:1];
-                break;
-                
-                //ランナー無し、得点3
-            case 4:
-                whichBaseIsRunner = 0;
-                ownScore = ownScore + 3;
-                [self score:1];
-                self.baseLabel.text = @"ランナー無し";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー無.jpg"];
-                [self win:2];
-                break;
-        }
-            break;
-    
-    //ランナー一、三塁
-    case 13:
-        switch(number){
-                //ランナー1、2塁、得点1
-                case 1:
-                    whichBaseIsRunner = 12;
-                    ownScore = ownScore + 1;
-                    [self score:1];
-                    self.baseLabel.text = @"ランナー1、2塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー一塁二塁.jpg"];
-                [self win:1];
-                    break;
-                    
-                    //ランナー二、三塁、得点1
-                case 2:
-                    whichBaseIsRunner = 23;
-                    ownScore = ownScore + 1;
-                    [self score:1];
-                    self.baseLabel.text = @"ランナー2、3塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー二塁三塁.jpg"];
-                [self win:1];
-                    break;
-                    
-                    //ランナー三塁、得点2
-                case 3:
-                    whichBaseIsRunner = 3;
-                    ownScore = ownScore + 2;
-                    [self score:1];
-                    self.baseLabel.text = @"ランナー3塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー三塁.jpg"];
-                [self win:1];
-                break;
-                    
-                    //ランナー無し、得点3
-                case 4:
-                    whichBaseIsRunner = 0;
-                    ownScore = ownScore + 3;
-                    [self score:1];
-                    self.baseLabel.text = @"ランナー無し";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー無.jpg"];
-                [self win:2];
-                    break;
-            }
-            break;
-            
-    //ランナー二、三塁
-    case 23:
-        switch(number){
-                //ランナー一、三塁、得点1
-            case 1:
-                whichBaseIsRunner = 13;
-                ownScore = ownScore + 1;
-                [self score:1];
-                self.baseLabel.text = @"ランナー1、3塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー一塁三塁.jpg"];
-                [self win:1];
-                break;
-                
-                //ランナー二塁、得点2
-            case 2:
-                whichBaseIsRunner = 2;
-                ownScore = ownScore + 2;
-                [self score:1];
-                self.baseLabel.text = @"ランナー2塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー二塁.jpg"];
-                [self win:1];
-                break;
-                
-                //ランナー三塁、得点2
-            case 3:
-                whichBaseIsRunner = 3;
-                ownScore = ownScore + 2;
-                [self score:1];
-                self.baseLabel.text = @"ランナー3塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー三塁.jpg"];
-                [self win:1];
-                break;
-                
-                //ランナー無し、得点3
-            case 4:
-                whichBaseIsRunner = 0;
-                ownScore = ownScore + 3;
-                [self score:1];
-                self.baseLabel.text = @"ランナー無し";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー無.jpg"];
-                [self win:2];
-                break;
-        }
-            break;
-
-    //ランナー満塁
-    case 4:
-        switch(number){
-                //ランナー満塁、得点1
-            case 1:
-                whichBaseIsRunner = 4;
-                ownScore = ownScore + 1;
-                [self score:1];
-                self.baseLabel.text = @"ランナー満塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー満塁.jpg"];
-                [self win:1];
-                break;
-                
-                //ランナー二、三塁、得点2
-            case 2:
-                whichBaseIsRunner = 23;
-                ownScore = ownScore + 2;
-                [self score:1];
-                self.baseLabel.text = @"ランナー2、3塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー二塁三塁.jpg"];
-                [self win:1];
-                break;
-                
-                //ランナー三塁、得点3
-            case 3:
-                whichBaseIsRunner = 3;
-                ownScore = ownScore + 3;
-                [self score:1];
-                self.baseLabel.text = @"ランナー3塁";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー三塁.jpg"];
-                [self win:1];
-                break;
-                
-                //ランナー無し、得点4
-            case 4:
-                whichBaseIsRunner = 0;
-                ownScore = ownScore + 4;
-                [self score:1];
-                self.baseLabel.text = @"ランナー無し";
-                self.baseImage.image = [UIImage imageNamed:@"ランナー無.jpg"];
-                [self win:4];
-                break;
-        }
-            break;
-}
-}
-*/
 
 - (void)runner:(int)number{
     
     switch(number){
+            //doesRunnerExists(third) == YES
+            //if()  enum
+            //tyoedef enum base{first,second,third}base;
             //シングルヒット
         case 1:
             if(_baseRunnerExist.third == 1){
                 _baseRunnerExist.third = 0;
                 ownScore = ownScore + 1;
+                [self scoreDisplay:1];
                 [self win:1];
-                self.resultLabel.text = @"タイムリーヒット!";
+                self.resultLabel.text = @"ﾀｲﾑﾘｰﾋｯﾄ!";
             }
             
             if(_baseRunnerExist.second == 1){
@@ -1158,13 +786,17 @@
             if(_baseRunnerExist.third == 1){
                 _baseRunnerExist.third = 0;
                 ownScore = ownScore + 1;
+                [self scoreDisplay:1];
                 [self win:1];
+                self.resultLabel.text = @"ﾀｲﾑﾘｰﾂｰﾍﾞｰｽ!";
             }
             
             if(_baseRunnerExist.second == 1){
                 _baseRunnerExist.second = 0;
                 ownScore = ownScore + 1;
+                [self scoreDisplay:1];
                 [self win:1];
+                self.resultLabel.text = @"ﾀｲﾑﾘｰﾂｰﾍﾞｰｽ!";
             }
             
             if(_baseRunnerExist.first == 1){
@@ -1180,19 +812,25 @@
             if(_baseRunnerExist.third == 1){
                 _baseRunnerExist.third = 0;
                 ownScore = ownScore + 1;
+                [self scoreDisplay:1];
                 [self win:1];
+                self.resultLabel.text = @"ﾀｲﾑﾘｰｽﾘｰﾍﾞｰｽ!";
             }
             
             if(_baseRunnerExist.second == 1){
                 _baseRunnerExist.second = 0;
                 ownScore = ownScore + 1;
+                [self scoreDisplay:1];
                 [self win:1];
+                self.resultLabel.text = @"ﾀｲﾑﾘｰｽﾘｰﾍﾞｰｽ!";
             }
             
             if(_baseRunnerExist.first == 1){
                 _baseRunnerExist.first = 0;
                 ownScore = ownScore + 1;
+                [self scoreDisplay:1];
                 [self win:1];
+                self.resultLabel.text = @"ﾀｲﾑﾘｰｽﾘｰﾍﾞｰｽ!";
             }
             
             _baseRunnerExist.third = 1;
@@ -1216,11 +854,11 @@
             }
             
             ownScore = ownScore + 1;
+            [self scoreDisplay:1]; //[self win:2]より先
             [self win:2];
             break;
             
     }
-    [self scoreDisplay:1];
     [self baseImageMethod];
     [self baseRunnerText];
 }

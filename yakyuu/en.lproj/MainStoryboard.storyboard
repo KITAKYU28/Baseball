@@ -275,8 +275,8 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="61" id="S1H-Sz-QcY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="代打">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
+                                <state key="normal" title="代打(1回のみ)">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -341,6 +341,7 @@
                             <constraint firstItem="MUn-lb-bVP" firstAttribute="trailing" secondItem="uPC-9k-VZE" secondAttribute="trailing" type="default" id="LMA-iI-cpJ"/>
                             <constraint firstItem="htg-jc-EoW" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="135" id="Mzi-rS-bRd"/>
                             <constraint firstItem="Kh2-xV-crE" firstAttribute="baseline" secondItem="Byl-kD-0El" secondAttribute="baseline" type="default" id="NiC-pc-4zS"/>
+                            <constraint firstItem="PGV-1S-QxV" firstAttribute="top" secondItem="Dak-rs-mtX" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="OdG-pL-KwF"/>
                             <constraint firstItem="vwn-Dl-pCU" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="46" id="PcP-lU-kWn"/>
                             <constraint firstItem="pia-mb-ZO1" firstAttribute="top" secondItem="BOr-cD-tFW" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="PqQ-Qb-vGI"/>
                             <constraint firstItem="EXl-Ym-Uj6" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="159" id="Ptm-Mr-8WE"/>
@@ -432,6 +433,48 @@
         <image name="scorebord2.jpg" width="181" height="64"/>
         <image name="ランナー無.jpg" width="16" height="16"/>
     </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="battingButtonDown:"/>
+                <relationship kind="action" name="changeButtonDown:"/>
+                <relationship kind="action" name="resetButtonDown:"/>
+                <relationship kind="action" name="setAverageButtonDown:"/>
+                <relationship kind="action" name="setBalanceButtonDown:"/>
+                <relationship kind="action" name="setPinchHitterButtonDown:"/>
+                <relationship kind="action" name="setPowerButtonDown:"/>
+                <relationship kind="outlet" name="averageButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="balanceButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="baseImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="baseLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="batterImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="battingButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="changeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="eightBottomLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="eightTopLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nineBottomLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nineTopLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="outLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pinchHitterButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="pitcherImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="playerNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="powerButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="resetButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="runnerFirst" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="runnerSecond" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="runnerThird" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="sevenBottomLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sevenTopLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalEnemyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
