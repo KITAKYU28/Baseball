@@ -12,20 +12,37 @@
 #define basePlayerType 12
 #define pinchHitterType 13
 #define randamNumber 100
+#define yes 1
+#define no 0
+#define nothing 0
+#define power 1
+#define balance 2
+#define average 3
+#define pinchHitter 4
+#define singleHit 1
+#define twoBaseHit 2
+#define threeBaseHit 3
+#define homerun 4
+#define own 1
+#define enemy 2
+#define easyVictory 0
+#define sayonaraWin 1
+#define sayonaraHomerun 2
+
 
 @interface ViewController (){
-    int playerStyle;
-    int battingResult;
+    int whatIsPlayerStyle;
+    int whatIsBattingResult;
     int ownScore;
     int enemyScore;
     int outCount;
-    int randomPlayer;
+    int whoIsPlayer;
     int totalEnemyScore;
     int totalOwnScore;
     int inning;
     int sayonara;
-    int pinchHitter; 
-    int stadiumNumber;
+    int didYouUsePinchHitter; 
+    int whatIsStadium;
 }
 @end
 
@@ -46,27 +63,27 @@
 }
 
 
-
 - (void)initialize{ 
-    playerStyle = 0;
-    battingResult = 0;
+    whatIsPlayerStyle = 0;
+    whatIsBattingResult = 0;
     enemyScore = 0;
-    randomPlayer = 0;
+    whoIsPlayer = 0;
     totalEnemyScore = 0;
     sayonara = 0;
-    pinchHitter = 0;
-    stadiumNumber = 0;
+    didYouUsePinchHitter = 0;
+    whatIsStadium = 0;
     
     outCount = 0;
     ownScore = 0;
     _doesRunnerExists.third = 0;
     _doesRunnerExists.second = 0;
     _doesRunnerExists.first = 0;
+    
     [self baseImageMethod];
+    
     inning = 7;
-    //buttonHidden = 0; //Yes,Noでやる
     totalOwnScore = 0;
-    pinchHitter = 0;
+    didYouUsePinchHitter = 0;
     self.resultLabel.text = @"打席結果";
     self.baseLabel.text = @"";
     self.outLabel.text = @"";
@@ -339,60 +356,55 @@
 
 
 - (void)setStadiumBackground{ 
-    stadiumNumber = arc4random() % stadiumType;
+    whatIsStadium = arc4random() % stadiumType;
+    stadiumImage = [UIImage imageNamed:[stadiumBackgroundArray objectAtIndex:whatIsStadium]];
     
-    UIImage *stadiumImage = [UIImage imageNamed:[stadiumBackgroundArray objectAtIndex:stadiumNumber]];
     self.view.backgroundColor = [UIColor colorWithPatternImage:stadiumImage];
-    
 }
 
 
 - (IBAction)setPowerButtonDown:(id)sender {
      [self playerButtonDownHidden];
-    playerStyle = 1;
+    whatIsPlayerStyle = power;
+    whoIsPlayer = arc4random() % basePlayerType;
+    whichIsPowerPlayerImage = [[powerPlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Image"];
     
-    randomPlayer = arc4random() % basePlayerType; 
-    
-    NSString *playerImage = [[powerPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"];
-    self.batterImage.image = [UIImage imageNamed:playerImage];
-    self.playerNameLabel.text = [[powerPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Name"];
+    self.batterImage.image = [UIImage imageNamed:whichIsPowerPlayerImage];
+    self.playerNameLabel.text = [[powerPlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Name"];
 }
 
 
 - (IBAction)setBalanceButtonDown:(id)sender {
     [self playerButtonDownHidden];
-    playerStyle = 2;
+    whatIsPlayerStyle = balance;
+    whoIsPlayer = arc4random() % basePlayerType;
+    whichIsBalancePlayerImage = [[balancePlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Image"];
     
-    randomPlayer = arc4random() % basePlayerType;
-    
-    NSString *balancePlayer = [[balancePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"];
-    self.batterImage.image = [UIImage imageNamed:balancePlayer];
-    self.playerNameLabel.text = [[balancePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Name"];
+    self.batterImage.image = [UIImage imageNamed:whichIsBalancePlayerImage];
+    self.playerNameLabel.text = [[balancePlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Name"];
 }
 
 
 - (IBAction)setAverageButtonDown:(id)sender {
     [self playerButtonDownHidden];
-    playerStyle = 3;
+    whatIsPlayerStyle = average;
+    whoIsPlayer = arc4random() % basePlayerType;
+    whichIsAveragePlayerImage = [[averagePlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Image"];
     
-    randomPlayer = arc4random() % basePlayerType;
-    
-    NSString *averagePlayer = [[averagePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"];
-    self.batterImage.image = [UIImage imageNamed:averagePlayer];
-    self.playerNameLabel.text = [[averagePlayerArray objectAtIndex:randomPlayer] objectForKey:@"Name"];
+    self.batterImage.image = [UIImage imageNamed:whichIsAveragePlayerImage];
+    self.playerNameLabel.text = [[averagePlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Name"];
 }
 
 
 - (IBAction)setPinchHitterButtonDown:(id)sender {
     [self playerButtonDownHidden];
-    playerStyle = 4;
-    pinchHitter = 1;
+    whatIsPlayerStyle = pinchHitter;
+    didYouUsePinchHitter = yes;
+    whoIsPlayer = arc4random() % pinchHitterType;
+    whichIsPinchHitterPlayerImage = [[pinchHitterPlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Image"];
     
-    randomPlayer = arc4random() % pinchHitterType;
-   
-    NSString *pinchHitterPlayer = [[pinchHitterPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Image"];
-    self.batterImage.image = [UIImage imageNamed:pinchHitterPlayer];
-    self.playerNameLabel.text = [[pinchHitterPlayerArray objectAtIndex:randomPlayer] objectForKey:@"Name"];
+    self.batterImage.image = [UIImage imageNamed:whichIsPinchHitterPlayerImage];
+    self.playerNameLabel.text = [[pinchHitterPlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Name"];
 }
 
 
@@ -405,115 +417,110 @@
     self.pitcherImage.hidden = NO;
     self.resultLabel.text = @"";
     
-    
     self.playerNameLabel.hidden = NO;
     self.baseLabel.hidden = NO;
 }
 
 
 - (IBAction)battingButtonDown:(id)sender {    
-    battingResult = arc4random() % randamNumber;
-    [self buttonPowerAverageBalanceHiddenNo]; //メソッドの先頭に持ってきた
+    whatIsBattingResult = arc4random() % randamNumber;
+    [self buttonPowerAverageBalanceHiddenNo]; 
     
-
-    switch(playerStyle){
+    switch(whatIsPlayerStyle){
         case 1:
-           //battingResult = 10;
-            if(battingResult < 20){
-                [self homerun];
+            if(whatIsBattingResult < 20){
+                [self battingResultIs:homerun];
                         }
             
-            if(battingResult >= 20 && battingResult < 21){
-                [self threeBaseHit];
+            if(whatIsBattingResult >= 20 && whatIsBattingResult < 21){
+                [self battingResultIs:threeBaseHit];
                         }
             
-            if(battingResult >= 21 && battingResult < 50) {
-               [self twoBaseHit];
+            if(whatIsBattingResult >= 21 && whatIsBattingResult < 50) {
+                [self battingResultIs:twoBaseHit];
                         }
             
-            if (battingResult >= 50 && battingResult < 65) {
-                [self singleHit];
+            if (whatIsBattingResult >= 50 && whatIsBattingResult < 65) {
+                [self battingResultIs:singleHit];
                         }
             
-            if (battingResult >= 65) {
+            if (whatIsBattingResult >= 65) {
                 [self batterOut];
                         }
             break;
             
         case 2:
-            
-            //battingResult = 90;
-            if (battingResult < 10) {
-                [self homerun];
+            if (whatIsBattingResult < 10) {
+                [self battingResultIs:homerun];
                     }
             
-            if (battingResult >= 10 && battingResult < 20) {
-                [self threeBaseHit];
+            if (whatIsBattingResult >= 10 && whatIsBattingResult < 20) {
+                [self battingResultIs:threeBaseHit];
                         }
             
-            if (battingResult >= 20 && battingResult < 40) {
-                [self twoBaseHit];
+            if (whatIsBattingResult >= 20 && whatIsBattingResult < 40) {
+                [self battingResultIs:twoBaseHit];
                         }
             
-            if (battingResult >= 40 && battingResult < 70) {
-                [self singleHit];
+            if (whatIsBattingResult >= 40 && whatIsBattingResult < 70) {
+                [self battingResultIs:singleHit];
                         }
             
-            if (battingResult >= 70) {
+            if (whatIsBattingResult >= 70) {
                 [self batterOut];
                         }
             break;
             
         case 3:
-            if (battingResult < 5) {
-                [self homerun];
+            if (whatIsBattingResult < 5) {
+                [self battingResultIs:homerun];
                         }
             
-            if (battingResult >= 5 && battingResult < 15) {
-                [self threeBaseHit];
+            if (whatIsBattingResult >= 5 && whatIsBattingResult < 15) {
+                [self battingResultIs:threeBaseHit];
                         }
             
-            if (battingResult >= 15 && battingResult < 35) {
-                [self twoBaseHit];
+            if (whatIsBattingResult >= 15 && whatIsBattingResult < 35) {
+                [self battingResultIs:twoBaseHit];
             }
             
-            if (battingResult >= 35 && battingResult < 75) {
-                [self singleHit];
+            if (whatIsBattingResult >= 35 && whatIsBattingResult < 75) {
+                [self battingResultIs:singleHit];
                         }
             
-            if (battingResult >= 75) {
+            if (whatIsBattingResult >= 75) {
                 [self batterOut];
                         }
             break;
             
         case 4:
-            if (battingResult < 75) {
-                [self homerun];
+            if (whatIsBattingResult < 75) {
+                [self battingResultIs:homerun];
             }
             
-            if (battingResult >= 75 && battingResult < 79) {
-                [self threeBaseHit];
+            if (whatIsBattingResult >= 75 && whatIsBattingResult < 79) {
+                [self battingResultIs:threeBaseHit];
             }
             
-            if (battingResult >= 79 && battingResult < 91) {
-                [self twoBaseHit];
+            if (whatIsBattingResult >= 79 && whatIsBattingResult < 91) {
+                [self battingResultIs:twoBaseHit];
             }
             
-            if (battingResult >= 91 && battingResult < 95) {
-                [self singleHit];
+            if (whatIsBattingResult >= 91 && whatIsBattingResult < 95) {
+                [self battingResultIs:singleHit];
             }
             
-            if (battingResult >= 95) {
+            if (whatIsBattingResult >= 95) {
                 [self batterOut];
             }
             break;
     }
     
-    playerStyle = 0;
+    whatIsPlayerStyle = nothing;
 
     self.battingButton.hidden = YES;
     
-    if(pinchHitter == 1){
+    if(didYouUsePinchHitter == yes){
         self.pinchHitterButton.hidden = YES;
         }
 }
@@ -528,11 +535,12 @@
     self.averageButton.hidden = NO;
     self.balanceButton.hidden = NO;
         
-        if(pinchHitter == 0){
+        if(didYouUsePinchHitter == no){
             self.pinchHitterButton.hidden = NO;
             }
 }
 
+/*
 - (void)homerun{
     self.resultLabel.text = @"HOMERUN!!";
     [self runner:4];
@@ -552,7 +560,8 @@
     self.resultLabel.text = @"ヒット!";
     [self runner:1];
 }
-
+*/
+ 
 - (void)batterOut{
     self.resultLabel.text = @"アウト!";
     outCount = outCount + 1;
@@ -569,13 +578,11 @@
         case 3:
             if(inning != 9){
         outCount = 0;
-        //whichBaseIsRunner = 0;
-        _doesRunnerExists.third = 0;
-        _doesRunnerExists.second = 0;
-        _doesRunnerExists.first = 0;
+        _doesRunnerExists.third = no;
+        _doesRunnerExists.second = no;
+        _doesRunnerExists.first = no;
         [self baseImageMethod];
         self.resultLabel.text = @"スリーアウト!!";
-        //self.baseLabel.text = @"";
         self.outLabel.text = @"";
         self.battingButton.hidden = YES;
         self.balanceButton.hidden = YES;
@@ -585,9 +592,9 @@
         self.changeButton.hidden = NO;
         
         if(ownScore == 0){
-            [self scoreDisplay:1];
+            [self scoreDisplay:own];
             }
-            }
+        }
             
             else{
                 [self winLose];
@@ -602,68 +609,51 @@
     self.powerButton.hidden = YES;
     self.averageButton.hidden = YES;
     
-    if(pinchHitter == 0){
+    if(didYouUsePinchHitter == no){
     self.pinchHitterButton.hidden = YES;
     }
     
     self.changeButton.hidden = YES;
     
     if(totalOwnScore + ownScore > totalEnemyScore){
-        [self win:0];
+        [self didYouWin:easyVictory];
             }
     
     if(totalOwnScore + ownScore < totalEnemyScore){
         self.resultLabel.text = @"敗北";
-        [self scoreDisplay:1];
+        [self scoreDisplay:own];
     }
     
     if(totalOwnScore + ownScore == totalEnemyScore){
         self.resultLabel.text = @"引き分け";
-        [self scoreDisplay:1];
+        [self scoreDisplay:own];
     }
 }
 
-- (void)win:(int)number{
-    //[self scoreDisplay:1];
-    
+- (void)didYouWin:(int)howToWin{
     
     if(inning == 9){
         if(totalOwnScore + ownScore > totalEnemyScore){
-    switch(number){
-        case 0:
-            self.resultLabel.text = @"勝利!";
-            if(ownScore == 0){
-                self.nineBottomLabel.text = @"X";
-            }
-            break;
-            
-        case 1:
-            self.resultLabel.text = @"サヨナラ勝ち!!!";
-            self.nineBottomLabel.text = [NSString stringWithFormat : @"%dX", totalEnemyScore - totalOwnScore + 1];
-            self.totalLabel.text = [NSString stringWithFormat : @"%dX", totalEnemyScore + 1];
-            break;
-            
-        case 2:
-            self.resultLabel.text = @"ｻﾖﾅﾗﾎｰﾑﾗﾝ!!!";
-            self.nineBottomLabel.text = [NSString stringWithFormat : @"%dX", ownScore];
-            break;
-            
-        case 3:
-            self.resultLabel.text = @"逆転ｻﾖﾅﾗﾎｰﾑﾗﾝ!!!";
-            self.nineBottomLabel.text = [NSString stringWithFormat : @"%dX", ownScore];
-            break;
-            
-        case 4:
-            self.resultLabel.text = @"ｻﾖﾅﾗ満塁ﾎｰﾑﾗﾝ!!!";
-            self.nineBottomLabel.text = [NSString stringWithFormat : @"%dX", ownScore];
-            break;
-            
-        case 5:
-            self.resultLabel.text = @"逆転ｻﾖﾅﾗ満塁ﾎｰﾑﾗﾝ!!!";
-            self.nineBottomLabel.text = [NSString stringWithFormat : @"%dX", ownScore];
-            break;
+            switch(howToWin){
+                case easyVictory:
+                    self.resultLabel.text = @"勝利!";
+                    if(ownScore == 0){
+                        self.nineBottomLabel.text = @"X";
+                    }
+                    break;
+                    
+                case sayonaraWin:
+                    self.resultLabel.text = @"サヨナラ勝ち!!!";
+                    self.nineBottomLabel.text = [NSString stringWithFormat : @"%dX", totalEnemyScore - totalOwnScore + 1];
+                    self.totalLabel.text = [NSString stringWithFormat : @"%dX", totalEnemyScore + 1];
+                    break;
+                    
+                case sayonaraHomerun:
+                    self.resultLabel.text = @"ｻﾖﾅﾗﾎｰﾑﾗﾝ!!!";
+                    self.nineBottomLabel.text = [NSString stringWithFormat : @"%dX", ownScore];
+                    break;
 
-    }
+            }
             self.powerButton.hidden = YES;
             self.averageButton.hidden = YES;
             self.balanceButton.hidden = YES;
@@ -679,7 +669,7 @@
     self.averageButton.hidden = NO;
     self.balanceButton.hidden = NO;
     
-    if(pinchHitter == 0){
+    if(didYouUsePinchHitter == no){
     self.pinchHitterButton.hidden = NO;
         }
     
@@ -697,37 +687,37 @@
     totalOwnScore = totalOwnScore + ownScore;
     ownScore = 0;
     self.totalLabel.text = [NSString stringWithFormat : @"%d", totalOwnScore];
-    [self scoreDisplay:2];      //動かない
+    [self scoreDisplay:enemy];
 }
 
 
-- (void)scoreDisplay:(int)number{
-    switch(number){
+- (void)scoreDisplay:(int)whoIsScore{
+    switch(whoIsScore){
         //自分のスコア
-        case 1:
-        switch(inning){
-        case 7:
-            self.sevenBottomLabel.text = [NSString stringWithFormat : @"%d", ownScore];
-            self.totalLabel.text = [NSString stringWithFormat : @"%d", ownScore];
-            break;
-            
-        case 8:
-            self.eightBottomLabel.text = [NSString stringWithFormat : @"%d", ownScore];
-            self.totalLabel.text = [NSString stringWithFormat : @"%d", totalOwnScore + ownScore];
-            break;
-            
-        case 9:
-            self.nineBottomLabel.text = [NSString stringWithFormat : @"%d", ownScore];
-            self.totalLabel.text = [NSString stringWithFormat : @"%d", totalOwnScore + ownScore];
-                if(totalOwnScore > totalEnemyScore){
-                    [self winLose];
-                }
-            break;
-    }
+        case own:
+            switch(inning){
+            case 7:
+                self.sevenBottomLabel.text = [NSString stringWithFormat : @"%d", ownScore];
+                self.totalLabel.text = [NSString stringWithFormat : @"%d", ownScore];
+                break;
+                
+            case 8:
+                self.eightBottomLabel.text = [NSString stringWithFormat : @"%d", ownScore];
+                self.totalLabel.text = [NSString stringWithFormat : @"%d", totalOwnScore + ownScore];
+                break;
+                
+            case 9:
+                self.nineBottomLabel.text = [NSString stringWithFormat : @"%d", ownScore];
+                self.totalLabel.text = [NSString stringWithFormat : @"%d", totalOwnScore + ownScore];
+                    if(totalOwnScore > totalEnemyScore){
+                        [self winLose];
+                    }
+                break;
+            }
             break;
             
         //相手スコア
-        case 2:
+        case enemy:
             switch(inning){
                 case 8:
                     enemyScore = arc4random() % randomEnemyScore;
@@ -746,116 +736,117 @@
                     }
                     break;
             }
-        break;
+            break;
+    }
 }
-}
 
 
 
 
-- (void)runner:(int)number{
+- (void)battingResultIs:(int)whatIsResult{
     
-    switch(number){
-            //doesRunnerExists(third) == YES
-            //if()  enum
-            //tyoedef enum base{first,second,third}base;
+    switch(whatIsResult){
             //シングルヒット
-        case 1:
-            if(_doesRunnerExists.third == 1){
-                _doesRunnerExists.third = 0;
+        case singleHit:
+            self.resultLabel.text = @"ヒット!";
+            if(_doesRunnerExists.third == yes){
+                _doesRunnerExists.third = no;
                 ownScore = ownScore + 1;
-                self.resultLabel.text = @"ﾀｲﾑﾘｰﾋｯﾄ!";   //
-                [self scoreDisplay:1];                //順番固定
-                [self win:1];                         //
+                self.resultLabel.text = @"ﾀｲﾑﾘｰﾋｯﾄ!";     //
+                [self scoreDisplay:own];                //順番固定
+                [self didYouWin:sayonaraWin];           //
             }
             
-            if(_doesRunnerExists.second == 1){
-                _doesRunnerExists.third = 1;
-                _doesRunnerExists.second = 0;
+            if(_doesRunnerExists.second == yes){
+                _doesRunnerExists.third = yes;
+                _doesRunnerExists.second = no;
             }
             
-            if(_doesRunnerExists.first == 1){
-                _doesRunnerExists.second = 1;
+            if(_doesRunnerExists.first == yes){
+                _doesRunnerExists.second = yes;
             }
         
-            _doesRunnerExists.first = 1;
+            _doesRunnerExists.first = yes;
             break;
          
             //ツーベースヒット
-        case 2:
-            if(_doesRunnerExists.third == 1){
-                _doesRunnerExists.third = 0;
+        case twoBaseHit:
+            self.resultLabel.text = @"ツーベース!";
+            if(_doesRunnerExists.third == yes){
+                _doesRunnerExists.third = no;
                 ownScore = ownScore + 1;
                  self.resultLabel.text = @"ﾀｲﾑﾘｰﾂｰﾍﾞｰｽ!";
-                [self scoreDisplay:1];
-                [self win:1];
+                [self scoreDisplay:own];
+                [self didYouWin:sayonaraWin];
             }
             
-            if(_doesRunnerExists.second == 1){
-                _doesRunnerExists.second = 0;
+            if(_doesRunnerExists.second == yes){
+                _doesRunnerExists.second = no;
                 ownScore = ownScore + 1;
                 self.resultLabel.text = @"ﾀｲﾑﾘｰﾂｰﾍﾞｰｽ!";
-                [self scoreDisplay:1];
-                [self win:1];
+                [self scoreDisplay:own];
+                [self didYouWin:sayonaraWin];
             }
             
-            if(_doesRunnerExists.first == 1){
-                _doesRunnerExists.third = 1;
-                _doesRunnerExists.first = 0;
+            if(_doesRunnerExists.first == yes){
+                _doesRunnerExists.third = yes;
+                _doesRunnerExists.first = no;
             }
             
-            _doesRunnerExists.second = 1;
+            _doesRunnerExists.second = yes;
             break;
      
             //スリーベースヒット
-        case 3:
-            if(_doesRunnerExists.third == 1){
-                _doesRunnerExists.third = 0;
+        case threeBaseHit:
+            self.resultLabel.text = @"スリーベース!";
+            if(_doesRunnerExists.third == yes){
+                _doesRunnerExists.third = no;
                 ownScore = ownScore + 1;
                 self.resultLabel.text = @"ﾀｲﾑﾘｰｽﾘｰﾍﾞｰｽ!";
-                [self scoreDisplay:1];
-                [self win:1];
+                [self scoreDisplay:own];
+                [self didYouWin:sayonaraWin];
             }
             
-            if(_doesRunnerExists.second == 1){
-                _doesRunnerExists.second = 0;
+            if(_doesRunnerExists.second == yes){
+                _doesRunnerExists.second = no;
                 ownScore = ownScore + 1;
                 self.resultLabel.text = @"ﾀｲﾑﾘｰｽﾘｰﾍﾞｰｽ!";
-                [self scoreDisplay:1];
-                [self win:1];
+                [self scoreDisplay:own];
+                [self didYouWin:sayonaraWin];
             }
             
-            if(_doesRunnerExists.first == 1){
-                _doesRunnerExists.first = 0;
+            if(_doesRunnerExists.first == yes){
+                _doesRunnerExists.first = no;
                 ownScore = ownScore + 1;
                 self.resultLabel.text = @"ﾀｲﾑﾘｰｽﾘｰﾍﾞｰｽ!";
-                [self scoreDisplay:1];
-                [self win:1];
+                [self scoreDisplay:own];
+                [self didYouWin:sayonaraWin];
             }
             
-            _doesRunnerExists.third = 1;
+            _doesRunnerExists.third = yes;
             break;
             
             //ホームラン
-        case 4:
-            if(_doesRunnerExists.third == 1){
-                _doesRunnerExists.third = 0;
+        case homerun:
+            self.resultLabel.text = @"HOMERUN!!";
+            if(_doesRunnerExists.third == yes){
+                _doesRunnerExists.third = no;
                 ownScore = ownScore + 1;
             }
             
-            if(_doesRunnerExists.second == 1){
-                _doesRunnerExists.second = 0;
+            if(_doesRunnerExists.second == yes){
+                _doesRunnerExists.second = no;
                 ownScore = ownScore + 1;
             }
             
-            if(_doesRunnerExists.first == 1){
-                _doesRunnerExists.first = 0;
+            if(_doesRunnerExists.first == yes){
+                _doesRunnerExists.first = no;
                 ownScore = ownScore + 1;
             }
             
             ownScore = ownScore + 1;
-            [self scoreDisplay:1]; //[self win:2]より先
-            [self win:2];
+            [self scoreDisplay:own]; //[self win:2]より先
+            [self didYouWin:sayonaraHomerun];
             break;
             
     }
@@ -864,27 +855,27 @@
 }
 
 - (void)baseImageMethod{
-    if(_doesRunnerExists.third == 1){
+    if(_doesRunnerExists.third == yes){
         self.runnerThird.hidden = NO;
     }
     
-    if(_doesRunnerExists.third == 0){
+    if(_doesRunnerExists.third == no){
          self.runnerThird.hidden = YES;
     }
     
-    if(_doesRunnerExists.second == 1){
+    if(_doesRunnerExists.second == yes){
          self.runnerSecond.hidden = NO;
     }
     
-    if(_doesRunnerExists.second == 0){
+    if(_doesRunnerExists.second == no){
          self.runnerSecond.hidden = YES;
     }
     
-    if(_doesRunnerExists.first == 1){
+    if(_doesRunnerExists.first == yes){
          self.runnerFirst.hidden = NO;
     }
     
-    if(_doesRunnerExists.first == 0){
+    if(_doesRunnerExists.first == no){
          self.runnerFirst.hidden = YES;
     }
     
@@ -893,42 +884,42 @@
 
 - (void)baseRunnerText{
     //ランナー無し
-    if(_doesRunnerExists.first == 0 && _doesRunnerExists.second == 0 && _doesRunnerExists.third == 0){
+    if(_doesRunnerExists.first == no && _doesRunnerExists.second == no && _doesRunnerExists.third == no){
         self.baseLabel.text = @"ランナーなし";
     }
     
     //ランナー１塁
-    if(_doesRunnerExists.first == 1 && _doesRunnerExists.second == 0 && _doesRunnerExists.third == 0){
+    if(_doesRunnerExists.first == yes && _doesRunnerExists.second == no && _doesRunnerExists.third == no){
         self.baseLabel.text = @"ランナー１塁";
     }
     
     //ランナー２塁
-    if(_doesRunnerExists.first == 0 && _doesRunnerExists.second == 1 && _doesRunnerExists.third == 0){
+    if(_doesRunnerExists.first == no && _doesRunnerExists.second == yes && _doesRunnerExists.third == no){
         self.baseLabel.text = @"ランナー２塁";
     }
     
     //ランナー３塁
-    if(_doesRunnerExists.first == 0 && _doesRunnerExists.second == 0 && _doesRunnerExists.third == 1){
+    if(_doesRunnerExists.first == no && _doesRunnerExists.second == no && _doesRunnerExists.third == yes){
         self.baseLabel.text = @"ランナー３塁";
     }
     
     //ランナー１、２塁
-    if(_doesRunnerExists.first == 1 && _doesRunnerExists.second == 1 && _doesRunnerExists.third == 0){
+    if(_doesRunnerExists.first == yes && _doesRunnerExists.second == yes && _doesRunnerExists.third == no){
         self.baseLabel.text = @"ランナー１、２塁";
     }
     
     //ランナー１、３塁
-    if(_doesRunnerExists.first == 1 && _doesRunnerExists.second == 0 && _doesRunnerExists.third == 1){
+    if(_doesRunnerExists.first == yes && _doesRunnerExists.second == no && _doesRunnerExists.third == yes){
         self.baseLabel.text = @"ランナー１、３塁";
     }
     
     //ランナー２、３塁
-    if(_doesRunnerExists.first == 0 && _doesRunnerExists.second == 1 && _doesRunnerExists.third == 1){
+    if(_doesRunnerExists.first == no && _doesRunnerExists.second == yes && _doesRunnerExists.third == yes){
         self.baseLabel.text = @"ランナー２、３塁";
     }
     
     //ランナー満塁
-    if(_doesRunnerExists.first == 1 && _doesRunnerExists.second == 1 && _doesRunnerExists.third == 1){
+    if(_doesRunnerExists.first == yes && _doesRunnerExists.second == yes && _doesRunnerExists.third == yes){
         self.baseLabel.text = @"ランナー満塁!!";
     }
     

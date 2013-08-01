@@ -14,6 +14,11 @@
     NSMutableArray *balancePlayerArray;
     NSMutableArray *averagePlayerArray;
     NSMutableArray *pinchHitterPlayerArray;
+    UIImage *stadiumImage;
+    NSString *whichIsPowerPlayerImage;
+    NSString *whichIsBalancePlayerImage;
+    NSString *whichIsAveragePlayerImage;
+    NSString *whichIsPinchHitterPlayerImage;
 }
 
 typedef struct doesRunnerExistsStruct {
@@ -65,18 +70,14 @@ typedef struct doesRunnerExistsStruct {
 - (IBAction)changeButtonDown:(id)sender;
 
 
-- (void)Button:(int)number;
+//- (void)Button:(int)number;
 - (void)buttonPowerAverageBalanceHiddenNo;
-- (void)singleHit;
-- (void)twoBaseHit;
-- (void)threeBaseHit;
-- (void)homerun;
 - (void)batterOut;
-- (void)runner:(int)number;
+- (void)battingResultIs:(int)whatIsResult;
 - (void)initialize;
-- (void)scoreDisplay:(int)number;
+- (void)scoreDisplay:(int)whoIsScore;
 - (void)winLose;
-- (void)win:(int)number;
+- (void)didYouWin:(int)howToWin;
 - (void)setStadiumBackground;
 - (void)baseImageMethod;
 - (void)baseRunnerText;
