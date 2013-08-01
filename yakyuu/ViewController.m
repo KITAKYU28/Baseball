@@ -59,9 +59,9 @@
     
     outCount = 0;
     ownScore = 0;
-    _baseRunnerExist.third = 0;
-    _baseRunnerExist.second = 0;
-    _baseRunnerExist.first = 0;
+    _doesRunnerExists.third = 0;
+    _doesRunnerExists.second = 0;
+    _doesRunnerExists.first = 0;
     [self baseImageMethod];
     inning = 7;
     //buttonHidden = 0; //Yes,Noでやる
@@ -570,9 +570,9 @@
             if(inning != 9){
         outCount = 0;
         //whichBaseIsRunner = 0;
-        _baseRunnerExist.third = 0;
-        _baseRunnerExist.second = 0;
-        _baseRunnerExist.first = 0;
+        _doesRunnerExists.third = 0;
+        _doesRunnerExists.second = 0;
+        _doesRunnerExists.first = 0;
         [self baseImageMethod];
         self.resultLabel.text = @"スリーアウト!!";
         //self.baseLabel.text = @"";
@@ -761,95 +761,95 @@
             //tyoedef enum base{first,second,third}base;
             //シングルヒット
         case 1:
-            if(_baseRunnerExist.third == 1){
-                _baseRunnerExist.third = 0;
+            if(_doesRunnerExists.third == 1){
+                _doesRunnerExists.third = 0;
                 ownScore = ownScore + 1;
-                [self scoreDisplay:1];
-                [self win:1];
-                self.resultLabel.text = @"ﾀｲﾑﾘｰﾋｯﾄ!";
+                self.resultLabel.text = @"ﾀｲﾑﾘｰﾋｯﾄ!";   //
+                [self scoreDisplay:1];                //順番固定
+                [self win:1];                         //
             }
             
-            if(_baseRunnerExist.second == 1){
-                _baseRunnerExist.third = 1;
-                _baseRunnerExist.second = 0;
+            if(_doesRunnerExists.second == 1){
+                _doesRunnerExists.third = 1;
+                _doesRunnerExists.second = 0;
             }
             
-            if(_baseRunnerExist.first == 1){
-                _baseRunnerExist.second = 1;
+            if(_doesRunnerExists.first == 1){
+                _doesRunnerExists.second = 1;
             }
         
-            _baseRunnerExist.first = 1;
+            _doesRunnerExists.first = 1;
             break;
          
             //ツーベースヒット
         case 2:
-            if(_baseRunnerExist.third == 1){
-                _baseRunnerExist.third = 0;
+            if(_doesRunnerExists.third == 1){
+                _doesRunnerExists.third = 0;
                 ownScore = ownScore + 1;
+                 self.resultLabel.text = @"ﾀｲﾑﾘｰﾂｰﾍﾞｰｽ!";
                 [self scoreDisplay:1];
                 [self win:1];
-                self.resultLabel.text = @"ﾀｲﾑﾘｰﾂｰﾍﾞｰｽ!";
             }
             
-            if(_baseRunnerExist.second == 1){
-                _baseRunnerExist.second = 0;
+            if(_doesRunnerExists.second == 1){
+                _doesRunnerExists.second = 0;
                 ownScore = ownScore + 1;
+                self.resultLabel.text = @"ﾀｲﾑﾘｰﾂｰﾍﾞｰｽ!";
                 [self scoreDisplay:1];
                 [self win:1];
-                self.resultLabel.text = @"ﾀｲﾑﾘｰﾂｰﾍﾞｰｽ!";
             }
             
-            if(_baseRunnerExist.first == 1){
-                _baseRunnerExist.third = 1;
-                _baseRunnerExist.first = 0;
+            if(_doesRunnerExists.first == 1){
+                _doesRunnerExists.third = 1;
+                _doesRunnerExists.first = 0;
             }
             
-            _baseRunnerExist.second = 1;
+            _doesRunnerExists.second = 1;
             break;
      
             //スリーベースヒット
         case 3:
-            if(_baseRunnerExist.third == 1){
-                _baseRunnerExist.third = 0;
+            if(_doesRunnerExists.third == 1){
+                _doesRunnerExists.third = 0;
                 ownScore = ownScore + 1;
+                self.resultLabel.text = @"ﾀｲﾑﾘｰｽﾘｰﾍﾞｰｽ!";
                 [self scoreDisplay:1];
                 [self win:1];
-                self.resultLabel.text = @"ﾀｲﾑﾘｰｽﾘｰﾍﾞｰｽ!";
             }
             
-            if(_baseRunnerExist.second == 1){
-                _baseRunnerExist.second = 0;
+            if(_doesRunnerExists.second == 1){
+                _doesRunnerExists.second = 0;
                 ownScore = ownScore + 1;
+                self.resultLabel.text = @"ﾀｲﾑﾘｰｽﾘｰﾍﾞｰｽ!";
                 [self scoreDisplay:1];
                 [self win:1];
-                self.resultLabel.text = @"ﾀｲﾑﾘｰｽﾘｰﾍﾞｰｽ!";
             }
             
-            if(_baseRunnerExist.first == 1){
-                _baseRunnerExist.first = 0;
+            if(_doesRunnerExists.first == 1){
+                _doesRunnerExists.first = 0;
                 ownScore = ownScore + 1;
+                self.resultLabel.text = @"ﾀｲﾑﾘｰｽﾘｰﾍﾞｰｽ!";
                 [self scoreDisplay:1];
                 [self win:1];
-                self.resultLabel.text = @"ﾀｲﾑﾘｰｽﾘｰﾍﾞｰｽ!";
             }
             
-            _baseRunnerExist.third = 1;
+            _doesRunnerExists.third = 1;
             break;
             
             //ホームラン
         case 4:
-            if(_baseRunnerExist.third == 1){
-                _baseRunnerExist.third = 0;
+            if(_doesRunnerExists.third == 1){
+                _doesRunnerExists.third = 0;
                 ownScore = ownScore + 1;
             }
             
-            if(_baseRunnerExist.second == 1){
-                _baseRunnerExist.second = 0;
+            if(_doesRunnerExists.second == 1){
+                _doesRunnerExists.second = 0;
                 ownScore = ownScore + 1;
             }
             
-            if(_baseRunnerExist.first == 1){
-                _baseRunnerExist.first = 0;
+            if(_doesRunnerExists.first == 1){
+                _doesRunnerExists.first = 0;
                 ownScore = ownScore + 1;
             }
             
@@ -864,27 +864,27 @@
 }
 
 - (void)baseImageMethod{
-    if(_baseRunnerExist.third == 1){
+    if(_doesRunnerExists.third == 1){
         self.runnerThird.hidden = NO;
     }
     
-    if(_baseRunnerExist.third == 0){
+    if(_doesRunnerExists.third == 0){
          self.runnerThird.hidden = YES;
     }
     
-    if(_baseRunnerExist.second == 1){
+    if(_doesRunnerExists.second == 1){
          self.runnerSecond.hidden = NO;
     }
     
-    if(_baseRunnerExist.second == 0){
+    if(_doesRunnerExists.second == 0){
          self.runnerSecond.hidden = YES;
     }
     
-    if(_baseRunnerExist.first == 1){
+    if(_doesRunnerExists.first == 1){
          self.runnerFirst.hidden = NO;
     }
     
-    if(_baseRunnerExist.first == 0){
+    if(_doesRunnerExists.first == 0){
          self.runnerFirst.hidden = YES;
     }
     
@@ -893,42 +893,42 @@
 
 - (void)baseRunnerText{
     //ランナー無し
-    if(_baseRunnerExist.first == 0 && _baseRunnerExist.second == 0 && _baseRunnerExist.third == 0){
+    if(_doesRunnerExists.first == 0 && _doesRunnerExists.second == 0 && _doesRunnerExists.third == 0){
         self.baseLabel.text = @"ランナーなし";
     }
     
     //ランナー１塁
-    if(_baseRunnerExist.first == 1 && _baseRunnerExist.second == 0 && _baseRunnerExist.third == 0){
+    if(_doesRunnerExists.first == 1 && _doesRunnerExists.second == 0 && _doesRunnerExists.third == 0){
         self.baseLabel.text = @"ランナー１塁";
     }
     
     //ランナー２塁
-    if(_baseRunnerExist.first == 0 && _baseRunnerExist.second == 1 && _baseRunnerExist.third == 0){
+    if(_doesRunnerExists.first == 0 && _doesRunnerExists.second == 1 && _doesRunnerExists.third == 0){
         self.baseLabel.text = @"ランナー２塁";
     }
     
     //ランナー３塁
-    if(_baseRunnerExist.first == 0 && _baseRunnerExist.second == 0 && _baseRunnerExist.third == 1){
+    if(_doesRunnerExists.first == 0 && _doesRunnerExists.second == 0 && _doesRunnerExists.third == 1){
         self.baseLabel.text = @"ランナー３塁";
     }
     
     //ランナー１、２塁
-    if(_baseRunnerExist.first == 1 && _baseRunnerExist.second == 1 && _baseRunnerExist.third == 0){
+    if(_doesRunnerExists.first == 1 && _doesRunnerExists.second == 1 && _doesRunnerExists.third == 0){
         self.baseLabel.text = @"ランナー１、２塁";
     }
     
     //ランナー１、３塁
-    if(_baseRunnerExist.first == 1 && _baseRunnerExist.second == 0 && _baseRunnerExist.third == 1){
+    if(_doesRunnerExists.first == 1 && _doesRunnerExists.second == 0 && _doesRunnerExists.third == 1){
         self.baseLabel.text = @"ランナー１、３塁";
     }
     
     //ランナー２、３塁
-    if(_baseRunnerExist.first == 0 && _baseRunnerExist.second == 1 && _baseRunnerExist.third == 1){
+    if(_doesRunnerExists.first == 0 && _doesRunnerExists.second == 1 && _doesRunnerExists.third == 1){
         self.baseLabel.text = @"ランナー２、３塁";
     }
     
     //ランナー満塁
-    if(_baseRunnerExist.first == 1 && _baseRunnerExist.second == 1 && _baseRunnerExist.third == 1){
+    if(_doesRunnerExists.first == 1 && _doesRunnerExists.second == 1 && _doesRunnerExists.third == 1){
         self.baseLabel.text = @"ランナー満塁!!";
     }
     

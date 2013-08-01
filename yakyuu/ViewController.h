@@ -16,13 +16,13 @@
     NSMutableArray *pinchHitterPlayerArray;
 }
 
-typedef struct baseRunnerExist {
+typedef struct doesRunnerExistsStruct {
     unsigned first:1;  //1ビットって意味
     unsigned second:1;
     unsigned third:1;
 } baseStruct;
 
-@property baseStruct baseRunnerExist;
+@property baseStruct doesRunnerExists;
 
 @property (weak, nonatomic) IBOutlet UILabel *sevenBottomLabel;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
