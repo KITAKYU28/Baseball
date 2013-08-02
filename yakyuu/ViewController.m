@@ -427,7 +427,7 @@
     [self buttonPowerAverageBalanceHiddenNo]; 
     
     switch(whatIsPlayerStyle){
-        case 1:
+        case power:
             if(whatIsBattingResult < 20){
                 [self battingResultIs:homerun];
                         }
@@ -449,7 +449,7 @@
                         }
             break;
             
-        case 2:
+        case balance:
             if (whatIsBattingResult < 10) {
                 [self battingResultIs:homerun];
                     }
@@ -471,7 +471,7 @@
                         }
             break;
             
-        case 3:
+        case average:
             if (whatIsBattingResult < 5) {
                 [self battingResultIs:homerun];
                         }
@@ -493,7 +493,7 @@
                         }
             break;
             
-        case 4:
+        case pinchHitter:
             if (whatIsBattingResult < 75) {
                 [self battingResultIs:homerun];
             }
