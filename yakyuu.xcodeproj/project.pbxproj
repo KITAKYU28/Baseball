@@ -80,6 +80,7 @@
 		0C682308169D4959000814AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0C682306169D4959000814AD /* InfoPlist.strings */; };
 		0C68230B169D4959000814AD /* yakyuuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C68230A169D4959000814AD /* yakyuuTests.m */; };
 		0C9FEBDA16AF85070071C2AC /* gazou.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9FEBD916AF85070071C2AC /* gazou.png */; };
+		AF3C5D1317AF91A8004A5C84 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3C5D1217AF91A8004A5C84 /* Team.m */; };
 		AF50714517AF8F27000EA53A /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = AF50714417AF8F27000EA53A /* Player.m */; };
 		F31F966F179E490B002C4564 /* tsutsugo.png in Resources */ = {isa = PBXBuildFile; fileRef = F31F966E179E490B002C4564 /* tsutsugo.png */; };
 		F31F9671179E4A5B002C4564 /* balentien.png in Resources */ = {isa = PBXBuildFile; fileRef = F31F9670179E4A5B002C4564 /* balentien.png */; };
@@ -191,6 +192,8 @@
 		0C682309169D4959000814AD /* yakyuuTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = yakyuuTests.h; sourceTree = "<group>"; };
 		0C68230A169D4959000814AD /* yakyuuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = yakyuuTests.m; sourceTree = "<group>"; };
 		0C9FEBD916AF85070071C2AC /* gazou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gazou.png; sourceTree = "<group>"; };
+		AF3C5D1117AF91A8004A5C84 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		AF3C5D1217AF91A8004A5C84 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
 		AF50714317AF8F27000EA53A /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		AF50714417AF8F27000EA53A /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		F31F966E179E490B002C4564 /* tsutsugo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tsutsugo.png; sourceTree = "<group>"; };
@@ -274,6 +277,8 @@
 		0C6822DF169D4958000814AD /* yakyuu */ = {
 			isa = PBXGroup;
 			children = (
+				AF3C5D1117AF91A8004A5C84 /* Team.h */,
+				AF3C5D1217AF91A8004A5C84 /* Team.m */,
 				AF50714317AF8F27000EA53A /* Player.h */,
 				AF50714417AF8F27000EA53A /* Player.m */,
 				0C6822E8169D4958000814AD /* AppDelegate.h */,
@@ -584,6 +589,7 @@
 				0C6822EA169D4958000814AD /* AppDelegate.m in Sources */,
 				0C6822F6169D4958000814AD /* ViewController.m in Sources */,
 				AF50714517AF8F27000EA53A /* Player.m in Sources */,
+				AF3C5D1317AF91A8004A5C84 /* Team.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
