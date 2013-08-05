@@ -38,7 +38,6 @@
     int totalEnemyScore;
     int totalOwnScore;
     int inning;
-    //int sayonara;
     int didYouUsePinchHitter; 
     int whatIsStadium;
 }
@@ -81,7 +80,6 @@
     
     inning = 7;
     totalOwnScore = 0;
-    didYouUsePinchHitter = 0;
     self.resultLabel.text = @"打席結果";
     self.baseLabel.text = @"";
     self.outLabel.text = @"";
@@ -423,6 +421,8 @@
 - (IBAction)battingButtonDown:(id)sender {    
     whatIsBattingResult = arc4random() % randamNumber;
     [self playerButtonVisible]; 
+    
+  
     
     switch(whatIsPlayerStyle){
         case power:

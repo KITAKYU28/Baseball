@@ -29,13 +29,13 @@ typedef struct doesRunnerExistsStruct {
 
 @property baseStruct doesRunnerExists;
 
-@property (weak, nonatomic) IBOutlet UILabel *sevenBottomLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 @property (weak, nonatomic) IBOutlet UILabel *baseLabel;
 @property (weak, nonatomic) IBOutlet UILabel *outLabel;
 @property (weak, nonatomic) IBOutlet UILabel *playerNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sevenTopLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *sevenBottomLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sevenBottomLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eightTopLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eightBottomLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nineTopLabel;
@@ -70,7 +70,6 @@ typedef struct doesRunnerExistsStruct {
 - (IBAction)changeButtonDown:(id)sender;
 
 
-//- (void)Button:(int)number;
 - (void)playerButtonVisible;
 - (void)batterOut;
 - (void)battingResultIs:(int)whatIsResult;
@@ -82,6 +81,6 @@ typedef struct doesRunnerExistsStruct {
 - (void)runnerImageDisplay;
 - (void)descriptionOfBaseSituation;
 - (void)playerButtonHidden;
-
+//- (void)battingResultOfPower;
 
 @end
