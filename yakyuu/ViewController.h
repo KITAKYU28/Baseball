@@ -47,9 +47,9 @@ typedef struct doesRunnerExistsStruct {
 @property (weak, nonatomic) IBOutlet UIImageView *baseImage;
 @property (weak, nonatomic) IBOutlet UIImageView *batterImage;
 @property (weak, nonatomic) IBOutlet UIImageView *pitcherImage;
-@property (weak, nonatomic) IBOutlet UIImageView *runnerFirst;
-@property (weak, nonatomic) IBOutlet UIImageView *runnerSecond;
-@property (weak, nonatomic) IBOutlet UIImageView *runnerThird;
+@property (weak, nonatomic) IBOutlet UIImageView *firstRunner;
+@property (weak, nonatomic) IBOutlet UIImageView *secondRunner;
+@property (weak, nonatomic) IBOutlet UIImageView *thirdRunner;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *pinchHitterButton;
@@ -71,17 +71,17 @@ typedef struct doesRunnerExistsStruct {
 
 
 //- (void)Button:(int)number;
-- (void)buttonPowerAverageBalanceHiddenNo;
+- (void)playerButtonVisible;
 - (void)batterOut;
 - (void)battingResultIs:(int)whatIsResult;
 - (void)initialize;
-- (void)scoreDisplay:(int)whoIsScore;
-- (void)winLose;
+- (void)whoseScoreIsDisplayed:(int)whichIsScore;
+- (void)winLoseResults;
 - (void)didYouWin:(int)howToWin;
 - (void)setStadiumBackground;
-- (void)baseImageMethod;
-- (void)baseRunnerText;
-- (void)playerButtonDownHidden;
+- (void)runnerImageDisplay;
+- (void)descriptionOfBaseSituation;
+- (void)playerButtonHidden;
 
 
 @end

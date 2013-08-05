@@ -404,6 +404,7 @@
                         <outlet property="changeButton" destination="xLJ-Sq-d2D" id="CII-Ub-5c2"/>
                         <outlet property="eightBottomLabel" destination="uPC-9k-VZE" id="6hP-Do-kUS"/>
                         <outlet property="eightTopLabel" destination="MUn-lb-bVP" id="bHv-H0-LWZ"/>
+                        <outlet property="firstRunner" destination="H1X-Se-QjA" id="ICe-Ef-2yb"/>
                         <outlet property="nineBottomLabel" destination="Mv9-XD-y3f" id="LUi-Jv-iQS"/>
                         <outlet property="nineTopLabel" destination="ynE-wP-cyG" id="LqB-V2-eFD"/>
                         <outlet property="outLabel" destination="jb0-87-Xau" id="T8o-ZA-eba"/>
@@ -413,11 +414,10 @@
                         <outlet property="powerButton" destination="Zvx-OC-1Pr" id="EvT-eM-O2S"/>
                         <outlet property="resetButton" destination="GTA-J9-e70" id="LD7-XK-ZJU"/>
                         <outlet property="resultLabel" destination="l9d-dw-t7a" id="8V1-2g-Mou"/>
-                        <outlet property="runnerFirst" destination="H1X-Se-QjA" id="80j-8A-wDN"/>
-                        <outlet property="runnerSecond" destination="Xs2-wR-KwJ" id="DQF-QH-k9j"/>
-                        <outlet property="runnerThird" destination="8st-Ew-6xC" id="IQN-BR-FoX"/>
+                        <outlet property="secondRunner" destination="Xs2-wR-KwJ" id="1m5-TG-em3"/>
                         <outlet property="sevenBottomLabel" destination="UHg-cF-AtU" id="12u-i2-17R"/>
                         <outlet property="sevenTopLabel" destination="FZg-BT-Wjv" id="G5j-db-mlv"/>
+                        <outlet property="thirdRunner" destination="8st-Ew-6xC" id="FKY-KB-5iE"/>
                         <outlet property="totalEnemyLabel" destination="jZA-i7-gns" id="R12-Qh-k4k"/>
                         <outlet property="totalLabel" destination="EFr-XM-cd4" id="sq4-8m-ciS"/>
                     </connections>
