@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Stadium.h"
+
 @interface ViewController : UIViewController{
     NSMutableArray *stadiumBackgroundArray;
     NSMutableArray *powerPlayerArray;
@@ -19,6 +21,8 @@
     NSString *whichIsBalancePlayerImage;
     NSString *whichIsAveragePlayerImage;
     NSString *whichIsPinchHitterPlayerImage;
+    
+    Stadium *stadium;
 }
 
 typedef struct doesRunnerExistsStruct {
@@ -82,5 +86,9 @@ typedef struct doesRunnerExistsStruct {
 - (void)descriptionOfBaseSituation;
 - (void)playerButtonHidden;
 //- (void)battingResultOfPower;
+
+
+-(void) initializeStadium:(NSNotification *) notify;
+-(void) updateScore:(NSNotification *) notify;
 
 @end

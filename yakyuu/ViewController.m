@@ -61,6 +61,11 @@
 
 
 - (void)initialize{
+    
+    NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
+    [notifyCenter addObserver:self selector:@selector(initializeStadium) name:@"InitializeStadium" object:stadium];
+    [notifyCenter addObserver:self selector:@selector(updateScore) name:@"UpdateScore" object:stadium];
+    
     enemyScore = 0;
     totalEnemyScore = 0;
     whatIsPlayerStyle = nothing;
@@ -899,6 +904,16 @@
     if(_doesRunnerExists.first == YES && _doesRunnerExists.second == YES && _doesRunnerExists.third == YES){
         self.baseLabel.text = @"ランナー満塁!!";
     }
+    
+}
+
+-(void) initializeStadium:(NSNotification *)notify
+{
+    
+}
+
+-(void) updateScore:(NSNotification *)notify
+{
     
 }
 
