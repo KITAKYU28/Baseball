@@ -15,27 +15,22 @@ typedef enum TAG_TURN_TYPE{
     TURN_OWN = 2,
 } TURN_TYPE;
 
+// TODO: Is this necessary?
 typedef struct Tag_ScorePair{
     int ownScore;
     int enemyScore;
 } ScorePair;
-
-typedef struct Tag_ScoreNotify{
-    TURN_TYPE turnType;
-    int inning;
-    int score;
-    int totalScore;
-} ScoreNotify;
 
 @interface Stadium : NSObject{
     ScorePair totalScore;
 }
 
 @property (nonatomic, strong) Team *ownTeam;
-@property (nonatomic, copy) NSMutableArray *backgroundImages;
+@property (nonatomic, copy) NSMutableArray *stadiumImages;
 @property (nonatomic) TURN_TYPE turn;
 @property (nonatomic) int inning;
 @property (nonatomic) int outCount;
+@property (nonatomic) int currentScore;
 @property (nonatomic, strong) NSMutableArray *scoreRecords;
 
 -(void) resetStadium;

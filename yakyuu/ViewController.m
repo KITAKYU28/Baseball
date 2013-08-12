@@ -50,6 +50,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    // TODO: Comfirm the position of these codes.
+    NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
+    [notifyCenter addObserver:self selector:@selector(initializeStadium:) name:@"InitializeStadium" object:stadium];
+    [notifyCenter addObserver:self selector:@selector(updateScore:) name:@"UpdateScore" object:stadium];
+    
+    stadium = [[Stadium alloc] init];
+    
     [self initialize];
 }
 
@@ -61,10 +68,6 @@
 
 
 - (void)initialize{
-    
-    NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
-    [notifyCenter addObserver:self selector:@selector(initializeStadium) name:@"InitializeStadium" object:stadium];
-    [notifyCenter addObserver:self selector:@selector(updateScore) name:@"UpdateScore" object:stadium];
     
     enemyScore = 0;
     totalEnemyScore = 0;
@@ -136,7 +139,7 @@
     [stadiumBackgroundArray addObject:@"yokohama.png"];
     [stadiumBackgroundArray addObject:@"zinguu.png"];
 
-    [self setStadiumBackground];
+//    [self setStadiumBackground];
     
     
     //パワープレイヤー画像
@@ -909,12 +912,20 @@
 
 -(void) initializeStadium:(NSNotification *)notify
 {
+    NSString *imageInfo = [[notify userInfo] objectForKey:@"StadiumImage"];
     
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:imageInfo]];
 }
 
 -(void) updateScore:(NSNotification *)notify
 {
+    NSDictionary *scoreInfo = [[notify userInfo] objectForKey:@"ScoreInfo"];
+    int turn = [[scoreInfo objectForKey:@"Gameturn"] intValue];
+    int inning = [[scoreInfo objectForKey:@"GameInning"] intValue];
+    int curScore = [[scoreInfo objectForKey:@"CurrentScore"] intValue];
+    int totalScore =[[scoreInfo objectForKey:@"TotalScore"] intValue];
     
+    NSLog(@"%d, %d, %d, %d", turn, inning, curScore, totalScore);
 }
 
 @end

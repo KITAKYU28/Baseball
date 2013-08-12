@@ -15,7 +15,7 @@ const int MAX_OUT_COUNT = 3;
 
 @implementation Stadium
 
-@synthesize ownTeam, backgroundImages, turn, inning, outCount, scoreRecords;
+@synthesize ownTeam, stadiumImages, turn, inning, outCount, currentScore, scoreRecords;
 
 -(id) init
 {
@@ -24,19 +24,19 @@ const int MAX_OUT_COUNT = 3;
         ownTeam = [[Team alloc] init];
         scoreRecords = [NSMutableArray array];
         
-        backgroundImages = [NSMutableArray array];
-        [backgroundImages addObject:@"yahoo.png"];
-        [backgroundImages addObject:@"kousien.png"];
-        [backgroundImages addObject:@"kyousera.png"];
-        [backgroundImages addObject:@"marine.png"];
-        [backgroundImages addObject:@"matuda.png"];
-        [backgroundImages addObject:@"nagoya.png"];
-        [backgroundImages addObject:@"rakuten.png"];
-        [backgroundImages addObject:@"sapporo.png"];
-        [backgroundImages addObject:@"seibu.png"];
-        [backgroundImages addObject:@"tokyo.png"];
-        [backgroundImages addObject:@"yokohama.png"];
-        [backgroundImages addObject:@"zinguu.png"];
+        stadiumImages = [NSMutableArray array];
+        [stadiumImages addObject:@"yahoo.png"];
+        [stadiumImages addObject:@"kousien.png"];
+        [stadiumImages addObject:@"kyousera.png"];
+        [stadiumImages addObject:@"marine.png"];
+        [stadiumImages addObject:@"matuda.png"];
+        [stadiumImages addObject:@"nagoya.png"];
+        [stadiumImages addObject:@"rakuten.png"];
+        [stadiumImages addObject:@"sapporo.png"];
+        [stadiumImages addObject:@"seibu.png"];
+        [stadiumImages addObject:@"tokyo.png"];
+        [stadiumImages addObject:@"yokohama.png"];
+        [stadiumImages addObject:@"zinguu.png"];
         
         [self resetStadium];
     }
@@ -60,19 +60,24 @@ const int MAX_OUT_COUNT = 3;
 
 -(void) notifyUpdateScore
 {
-    ScoreNotify scoreNotify;
-    // __bridge : transfers a pointer between Objective-C and Core Foundation without transfer of ownership.
-    // __bridge_retained :casts an Objective-C pointer to a Core Foundation pointer and also transfers ownership to you.
-    // __bridge_transfer : moves a non-Objective-C pointer to Objective-C and also transfers ownership to ARC.
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateScore" object: (__bridge id)(&scoreNotify)];
+    int curTotalScore = (turn == TURN_ENEMY)? totalScore.enemyScore:totalScore.ownScore;
+    NSDictionary *scoreInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                               [NSNumber numberWithInt:turn], @"GameTurn",
+                               [NSNumber numberWithInt:inning], @"GameInning",
+                               [NSNumber numberWithInt:curTotalScore], @"TotalScore",
+                               [NSNumber numberWithInt:currentScore], @"CurrentScore",
+                               nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateScore" object: self userInfo:scoreInfo];
 }
 
 //TODO: Do create notify data for the image of stadium
 //      or pass self. Do not encapsulation data
 -(void) notifyInitializeStadium
 {
-    NSUInteger bgIndex = arc4random() % [backgroundImages count];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"InitializeStadium" object: [backgroundImages objectAtIndex:bgIndex]];
+    NSUInteger imageIndex = arc4random() % [stadiumImages count];
+    NSString *imageName = [stadiumImages objectAtIndex:imageIndex];
+    NSDictionary *imageInfo = [NSDictionary dictionaryWithObject:imageName forKey:@"StadiumImage"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"InitializeStadium" object:self userInfo:imageInfo];
 }
 
 @end
