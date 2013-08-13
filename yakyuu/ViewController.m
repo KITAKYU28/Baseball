@@ -54,6 +54,7 @@
     NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
     [notifyCenter addObserver:self selector:@selector(initializeStadium:) name:@"InitializeStadium" object:stadium];
     [notifyCenter addObserver:self selector:@selector(updateScore:) name:@"UpdateScore" object:stadium];
+    [notifyCenter addObserver:self selector:@selector(changePlayer:) name:@"ChangePlayer" object:stadium];
     
     stadium = [[Stadium alloc] init];
     
@@ -369,46 +370,58 @@
 
 - (IBAction)setPowerButtonDown:(id)sender {
      [self playerButtonHidden];
-    whatIsPlayerStyle = power;
-    whoIsPlayer = arc4random() % basePlayerType;
-    whichIsPowerPlayerImage = [[powerPlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Image"];
+// TODO: clear
+//    whatIsPlayerStyle = power;
+//    whoIsPlayer = arc4random() % basePlayerType;
+//    whichIsPowerPlayerImage = [[powerPlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Image"];
+//    
+//    self.batterImage.image = [UIImage imageNamed:whichIsPowerPlayerImage];
+//    self.playerNameLabel.text = [[powerPlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Name"];
     
-    self.batterImage.image = [UIImage imageNamed:whichIsPowerPlayerImage];
-    self.playerNameLabel.text = [[powerPlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Name"];
+    [stadium selectBatter:PLAYER_POWER];
 }
 
 
 - (IBAction)setBalanceButtonDown:(id)sender {
     [self playerButtonHidden];
-    whatIsPlayerStyle = balance;
-    whoIsPlayer = arc4random() % basePlayerType;
-    whichIsBalancePlayerImage = [[balancePlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Image"];
+// TODO: clear
+//    whatIsPlayerStyle = balance;
+//    whoIsPlayer = arc4random() % basePlayerType;
+//    whichIsBalancePlayerImage = [[balancePlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Image"];
+//    
+//    self.batterImage.image = [UIImage imageNamed:whichIsBalancePlayerImage];
+//    self.playerNameLabel.text = [[balancePlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Name"];
     
-    self.batterImage.image = [UIImage imageNamed:whichIsBalancePlayerImage];
-    self.playerNameLabel.text = [[balancePlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Name"];
+    [stadium selectBatter:PLAYER_BALANCE];
 }
 
 
 - (IBAction)setAverageButtonDown:(id)sender {
     [self playerButtonHidden];
-    whatIsPlayerStyle = average;
-    whoIsPlayer = arc4random() % basePlayerType;
-    whichIsAveragePlayerImage = [[averagePlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Image"];
+// TODO: clear
+//    whatIsPlayerStyle = average;
+//    whoIsPlayer = arc4random() % basePlayerType;
+//    whichIsAveragePlayerImage = [[averagePlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Image"];
+//    
+//    self.batterImage.image = [UIImage imageNamed:whichIsAveragePlayerImage];
+//    self.playerNameLabel.text = [[averagePlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Name"];
     
-    self.batterImage.image = [UIImage imageNamed:whichIsAveragePlayerImage];
-    self.playerNameLabel.text = [[averagePlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Name"];
+    [stadium selectBatter:PLAYER_AVERAGE];
 }
 
 
 - (IBAction)setPinchHitterButtonDown:(id)sender {
     [self playerButtonHidden];
-    whatIsPlayerStyle = pinchHitter;
-    didYouUsePinchHitter = YES;
-    whoIsPlayer = arc4random() % pinchHitterType;
-    whichIsPinchHitterPlayerImage = [[pinchHitterPlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Image"];
+// TODO: clear
+//    whatIsPlayerStyle = pinchHitter;
+//    didYouUsePinchHitter = YES;
+//    whoIsPlayer = arc4random() % pinchHitterType;
+//    whichIsPinchHitterPlayerImage = [[pinchHitterPlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Image"];
+//    
+//    self.batterImage.image = [UIImage imageNamed:whichIsPinchHitterPlayerImage];
+//    self.playerNameLabel.text = [[pinchHitterPlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Name"];
     
-    self.batterImage.image = [UIImage imageNamed:whichIsPinchHitterPlayerImage];
-    self.playerNameLabel.text = [[pinchHitterPlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Name"];
+    [stadium selectBatter:PLAYER_PINCH];
 }
 
 
@@ -533,6 +546,7 @@
     
 - (IBAction)resetButtonDown:(id)sender {
     [self initialize];
+    [stadium resetStadium];
 }
 
 
@@ -919,13 +933,35 @@
 
 -(void) updateScore:(NSNotification *)notify
 {
-    NSDictionary *scoreInfo = [[notify userInfo] objectForKey:@"ScoreInfo"];
+    NSDictionary *scoreInfo = [notify userInfo];
     int turn = [[scoreInfo objectForKey:@"Gameturn"] intValue];
-    int inning = [[scoreInfo objectForKey:@"GameInning"] intValue];
+    inning = [[scoreInfo objectForKey:@"GameInning"] intValue];
     int curScore = [[scoreInfo objectForKey:@"CurrentScore"] intValue];
     int totalScore =[[scoreInfo objectForKey:@"TotalScore"] intValue];
+    outCount = [[scoreInfo objectForKey:@"OutCount"] intValue];
     
     NSLog(@"%d, %d, %d, %d", turn, inning, curScore, totalScore);
+    
+    self.sevenBottomLabel.text = [NSString stringWithFormat : @"%d", curScore];
+    self.totalLabel.text = [NSString stringWithFormat : @"%d", totalScore];
+
+    
+    self.eightBottomLabel.text = [NSString stringWithFormat : @"%d", curScore];
+    self.totalLabel.text = [NSString stringWithFormat : @"%d", totalScore];
+
+    
+    self.nineBottomLabel.text = [NSString stringWithFormat : @"%d", curScore];
+    self.totalLabel.text = [NSString stringWithFormat : @"%d", totalScore];
+    
+}
+
+-(void) changePlayer:(NSNotification *)notify
+{
+    NSDictionary *playerInfo = [notify userInfo];
+    NSString *playerName =[playerInfo objectForKey:@"PlayerName"];
+    NSString *playerImage = [playerInfo objectForKey:@"PlayerImage"];
+    self.playerNameLabel.text = playerName;
+    self.batterImage.image = [UIImage imageNamed:playerImage];
 }
 
 @end

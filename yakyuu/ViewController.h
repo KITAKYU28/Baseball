@@ -90,5 +90,6 @@ typedef struct doesRunnerExistsStruct {
 
 -(void) initializeStadium:(NSNotification *) notify;
 -(void) updateScore:(NSNotification *) notify;
+-(void) changePlayer:(NSNotification *) notify;
 
 @end

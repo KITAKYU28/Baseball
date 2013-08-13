@@ -23,6 +23,7 @@ typedef struct Tag_ScorePair{
 
 @interface Stadium : NSObject{
     ScorePair totalScore;
+    Player *players[MAX_BASE];
 }
 
 @property (nonatomic, strong) Team *ownTeam;
@@ -37,5 +38,9 @@ typedef struct Tag_ScorePair{
 
 -(void) notifyUpdateScore;
 -(void) notifyInitializeStadium;
+-(void) notifyChangePlayer;
+
+-(void) selectBatter:(PLAYER_TYPE) type;
+-(void) playerToHit;
 
 @end

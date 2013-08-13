@@ -8,34 +8,37 @@
 
 #import "Player.h"
 
-// battingの関数で元のswitchの各caseが同じの動作を実行しているので
-// 現在の機能だけで、クラスを分割する必要がないと思う
 const int BATTINGRATEMAX = 100;
 
-static int battingRates[PLAYER_MAX][BATTER_OUT] =
+static int battingRates[PLAYER_MAX][HOME_RUN] =
 {
-    {20, 21, 50, 65},
-    {10, 20, 40, 70},
-    {5, 15, 35, 75},
-    {75, 79, 91, 95}
+//    {20, 21, 50, 65},
+//    {10, 20, 40, 70},
+//    {5, 15, 35, 75},
+//    {75, 79, 91, 95},
+    {35, 50, 79, 80},
+    {30, 60, 80, 90},
+    {25, 65, 85, 95},
+    { 5,  9, 21, 25}
 };
 
 @implementation Player
 
-@synthesize playerType, playerName, playerImage;
+@synthesize playerType, playerName, playerImage, onBase;
 
 -(id) init
 {
-    return [self initWithName: @"" andType: PLAYER_NONE andImage: @""];
+    return [self initWithName:@"" andType:PLAYER_NONE andImage:@""];
 }
 
--(id) initWithName: (NSString *)name andType: (PLAYER_TYPE)type andImage: (NSString *)image
+-(id) initWithName:(NSString *)name andType:(PLAYER_TYPE)type andImage:(NSString *)image
 {
     self = [super init];
     if (self){
-        [self setPlayerImage: name];
-        [self setPlayerType: type];
-        [self setPlayerImage: image];
+        [self setPlayerName:name];
+        [self setPlayerType:type];
+        [self setPlayerImage:image];
+        onBase = NONE_BASE;
     }
     return  self;
 }
@@ -46,23 +49,50 @@ static int battingRates[PLAYER_MAX][BATTER_OUT] =
 //    myRates = &(battingRates[playerType]);
 //    (*myRates)[HOME_RUN])
     
+    if (onBase != HOME_BASE) {
+        // Error: This Player is not a batter now.
+        return -1;
+    }
+    
     int battingResult = arc4random() % BATTINGRATEMAX;
+    int result = BATTER_OUT;
     
     // TODO: Show button
-    if (battingResult < battingRates[playerType][HOME_RUN]){
-        //TODO: Process [self homerun];
-    }else if (battingResult < battingRates[playerType][THREE_BASE_HIT]){
-        //TODO: Process [self threeBaseHit];
-    }else if (battingResult < battingRates[playerType][TWO_BASE_HIT]) {
-        //TODO: [self twoBaseHit];
+    if (battingResult < battingRates[playerType][BATTER_OUT]){
+        //TODO: Process [self batterOut];
+        result = BATTER_OUT;
     }else if (battingResult < battingRates[playerType][SINGLE_HIT]){
-        //TODO: [self singleHit];
+        //TODO: Process [self singleHit];
+        result = SINGLE_HIT;
+    }else if (battingResult < battingRates[playerType][TWO_BASE_HIT]){
+        //TODO: [self twoBaseHit];
+        result = TWO_BASE_HIT;
+    }else if (battingResult < battingRates[playerType][THREE_BASE_HIT]){
+        //TODO: [self threeBaseHit];
+        result = THREE_BASE_HIT;
     }else{
-        //TODO: [self batterOut];
+        //TODO: [self homerun];
+        result = HOME_RUN;
     }
     
     // TODO: return value
-    return battingResult;
+    return result;
+}
+
+-(BASE_TYPE) run:(BATTING_TYPE) battingResult
+{
+    if (onBase < FIRST_BASE || onBase > THIRD_BASE) {
+        // Error: This player is not a runner now.
+        return onBase;
+    }
+    
+    int runResult = onBase + battingResult;
+    if (runResult > THIRD_BASE) {
+        onBase = NONE_BASE;
+    }else{
+        onBase = runResult;
+    }
+    return onBase;
 }
 
 @end
