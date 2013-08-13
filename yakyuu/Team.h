@@ -12,20 +12,24 @@
 
 @interface Team : NSObject
 
+@property (nonatomic) bool isPinchSelected;
 // TODO: This structure is not good.
 @property (nonatomic, strong) NSMutableArray *powerPlayers;
 @property (nonatomic, strong) NSMutableArray *balancePlayers;
 @property (nonatomic, strong) NSMutableArray *averagePlayers;
-@property (nonatomic, strong) NSMutableArray *pinchHitterPlayers;
+@property (nonatomic, strong) NSMutableArray *pinchHitters;
 
 -(void) initPowerPlayers;
 -(void) initBalancePlayers;
 -(void) initAveragePlayers;
--(void) initPinchHitterPlayers;
+-(void) initpinchHitters;
 
+// TODO: Refactoring
 -(Player *) getPowerPlayer;
 -(Player *) getBalancePlayer;
 -(Player *) getAveragePlayer;
--(Player *) getPinchHitterPlayer;
+-(Player *) getPinchHitter;
+
+-(void) addPlayer:(Player *)player;
 
 @end

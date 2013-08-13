@@ -10,18 +10,18 @@
 
 @implementation Team
 
-@synthesize powerPlayers, balancePlayers, averagePlayers, pinchHitterPlayers;
-
+@synthesize isPinchSelected, powerPlayers, balancePlayers, averagePlayers, pinchHitters;
 
 -(id) init
 {
     self = [super init];
     if (self)
     {
+        isPinchSelected = NO;
         [self initPowerPlayers];
         [self initBalancePlayers];
         [self initAveragePlayers];
-        [self initPinchHitterPlayers];
+        [self initpinchHitters];
     }
     return self;
 }
@@ -116,7 +116,7 @@
     [averagePlayers addObject:kuriyama];
 }
 
--(void) initPinchHitterPlayers
+-(void) initpinchHitters
 {
     Player *matsunaka = [[Player alloc] initWithName:@"松中" andType:PLAYER_POWER andImage:@"matsunaka.png"];
     Player *inaba = [[Player alloc] initWithName:@"稲葉" andType:PLAYER_POWER andImage:@"inaba.png"];
@@ -132,48 +132,76 @@
     Player *ramirez = [[Player alloc] initWithName:@"ﾗﾐﾚｽ" andType:PLAYER_POWER andImage:@"ramirez.png"];
     Player *yamazakiSusumu = [[Player alloc] initWithName:@"ZACKY" andType:PLAYER_POWER andImage:@"yamazaki.png"];
     
-    pinchHitterPlayers = [NSMutableArray array];
-    [pinchHitterPlayers addObject:matsunaka];
-    [pinchHitterPlayers addObject:inaba];
-    [pinchHitterPlayers addObject:nakajima];
-    [pinchHitterPlayers addObject:matsui];
-    [pinchHitterPlayers addObject:ideho];
-    [pinchHitterPlayers addObject:fukuura];
-    [pinchHitterPlayers addObject:ogasawara];
-    [pinchHitterPlayers addObject:kanemoto];
-    [pinchHitterPlayers addObject:wada];
-    [pinchHitterPlayers addObject:maedatomo];
-    [pinchHitterPlayers addObject:aoki];
-    [pinchHitterPlayers addObject:ramirez];
-    [pinchHitterPlayers addObject:yamazakiSusumu];
+    pinchHitters = [NSMutableArray array];
+    [pinchHitters addObject:matsunaka];
+    [pinchHitters addObject:inaba];
+    [pinchHitters addObject:nakajima];
+    [pinchHitters addObject:matsui];
+    [pinchHitters addObject:ideho];
+    [pinchHitters addObject:fukuura];
+    [pinchHitters addObject:ogasawara];
+    [pinchHitters addObject:kanemoto];
+    [pinchHitters addObject:wada];
+    [pinchHitters addObject:maedatomo];
+    [pinchHitters addObject:aoki];
+    [pinchHitters addObject:ramirez];
+    [pinchHitters addObject:yamazakiSusumu];
 }
 
 -(Player *) getPowerPlayer
 {
     NSUInteger randomPlayer = arc4random() % [powerPlayers count];
-    
-    return [powerPlayers objectAtIndex:randomPlayer];
+    Player *player = [powerPlayers objectAtIndex:randomPlayer];
+    [powerPlayers removeObjectAtIndex:randomPlayer];
+    return player;
 }
 
 -(Player *) getBalancePlayer
 {
     NSUInteger randomPlayer = arc4random() % [balancePlayers count];
-    
-    return [balancePlayers objectAtIndex:randomPlayer];
+    Player *player = [balancePlayers objectAtIndex:randomPlayer];
+    [balancePlayers removeObjectAtIndex:randomPlayer];
+    return player;
 }
 
 -(Player *) getAveragePlayer
 {
     NSUInteger randomPlayer = arc4random() % [averagePlayers count];
-    
-    return [averagePlayers objectAtIndex:randomPlayer];
+    Player *player = [averagePlayers objectAtIndex:randomPlayer];
+    [averagePlayers removeObjectAtIndex:randomPlayer];
+    return player;
 }
 
--(Player *) getPinchHitterPlayer
+-(Player *) getPinchHitter
 {
-    NSUInteger randomPlayer = arc4random() % [pinchHitterPlayers count];
+    isPinchSelected = YES;
     
-    return [pinchHitterPlayers objectAtIndex:randomPlayer];
+    NSUInteger randomPlayer = arc4random() % [pinchHitters count];
+    Player *player = [pinchHitters objectAtIndex:randomPlayer];
+    [pinchHitters removeObjectAtIndex:randomPlayer];
+    return player;
+}
+
+-(void) addPlayer:(Player *)player
+{
+    if (player) {
+        switch (player.playerType) {
+            case PLAYER_POWER:
+                [powerPlayers addObject:player];
+                break;
+            case PLAYER_BALANCE:
+                [balancePlayers addObject:player];
+                break;
+            case PLAYER_AVERAGE:
+                [averagePlayers addObject:player];
+                break;
+            case PLAYER_PINCH:
+                [pinchHitters addObject:player];
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 @end
