@@ -10,9 +10,12 @@
 
 #import "Team.h"
 
+#define START_INNING 7
+#define END_INNING 9
+
 typedef enum TAG_TURN_TYPE{
-    TURN_ENEMY = 1,
-    TURN_OWN = 2,
+    TURN_ENEMY = 0,
+    TURN_OWN = 1,
 } TURN_TYPE;
 
 // TODO: Is this necessary?
@@ -36,11 +39,15 @@ typedef struct Tag_ScorePair{
 
 -(void) resetStadium;
 
--(void) notifyUpdateScore;
+-(void) notifyUpdateScore:(NSString *) resultText;
 -(void) notifyInitializeStadium;
 -(void) notifyChangePlayer;
+-(void) notifyBatterOut;
+-(void) notifyUpdateRunners;
 
 -(void) selectBatter:(PLAYER_TYPE) type;
 -(void) playerToHit;
+-(void) enemyBatting;
+-(void) playersReturn;
 
 @end

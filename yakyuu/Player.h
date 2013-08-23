@@ -25,6 +25,7 @@ typedef enum TAG_BATTING_TYPE
     TWO_BASE_HIT = 2,
     THREE_BASE_HIT = 3,
     HOME_RUN = 4,
+    BATTING_MAX = 5,
 } BATTING_TYPE;
 
 // TODO: Make this to be player's state
@@ -44,6 +45,7 @@ typedef enum TAG_BASE_TYPE
 @property (nonatomic, copy) NSString *playerName;
 @property (nonatomic, copy) NSString *playerImage;
 @property (nonatomic) BASE_TYPE onBase;
+// 
 
 
 -(id) initWithName:(NSString *)name andType:(PLAYER_TYPE) type andImage:(NSString *)image;

@@ -16,10 +16,11 @@ static int battingRates[PLAYER_MAX][HOME_RUN] =
 //    {10, 20, 40, 70},
 //    {5, 15, 35, 75},
 //    {75, 79, 91, 95},
+    {0, 0, 0, 0},
     {35, 50, 79, 80},
     {30, 60, 80, 90},
     {25, 65, 85, 95},
-    { 5,  9, 21, 25}
+    { 5,  9, 21, 25},
 };
 
 @implementation Player
@@ -57,31 +58,26 @@ static int battingRates[PLAYER_MAX][HOME_RUN] =
     int battingResult = arc4random() % BATTINGRATEMAX;
     int result = BATTER_OUT;
     
-    // TODO: Show button
+    // TODO: create utility class
     if (battingResult < battingRates[playerType][BATTER_OUT]){
-        //TODO: Process [self batterOut];
         result = BATTER_OUT;
     }else if (battingResult < battingRates[playerType][SINGLE_HIT]){
-        //TODO: Process [self singleHit];
         result = SINGLE_HIT;
     }else if (battingResult < battingRates[playerType][TWO_BASE_HIT]){
-        //TODO: [self twoBaseHit];
         result = TWO_BASE_HIT;
     }else if (battingResult < battingRates[playerType][THREE_BASE_HIT]){
-        //TODO: [self threeBaseHit];
         result = THREE_BASE_HIT;
     }else{
-        //TODO: [self homerun];
         result = HOME_RUN;
     }
     
-    // TODO: return value
     return result;
 }
 
 -(BASE_TYPE) run:(BATTING_TYPE) battingResult
 {
-    if (onBase < FIRST_BASE || onBase > THIRD_BASE) {
+    // switch
+    if (onBase < HOME_BASE || onBase > THIRD_BASE) {
         // Error: This player is not a runner now.
         return onBase;
     }

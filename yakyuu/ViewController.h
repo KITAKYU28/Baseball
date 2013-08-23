@@ -75,21 +75,17 @@ typedef struct doesRunnerExistsStruct {
 
 
 - (void)playerButtonVisible;
-- (void)batterOut;
-- (void)battingResultIs:(int)whatIsResult;
 - (void)initialize;
-- (void)whoseScoreIsDisplayed:(int)whichIsScore;
 - (void)winLoseResults;
 - (void)didYouWin:(int)howToWin;
-- (void)setStadiumBackground;
-- (void)runnerImageDisplay;
 - (void)descriptionOfBaseSituation;
 - (void)playerButtonHidden;
-//- (void)battingResultOfPower;
 
+-(void) batterOut:(NSNotification *) notify;
 
 -(void) initializeStadium:(NSNotification *) notify;
 -(void) updateScore:(NSNotification *) notify;
 -(void) changePlayer:(NSNotification *) notify;
+-(void) updateRunners:(NSNotification *) notify;
 
 @end

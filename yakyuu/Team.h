@@ -22,9 +22,9 @@
 -(void) initPowerPlayers;
 -(void) initBalancePlayers;
 -(void) initAveragePlayers;
--(void) initpinchHitters;
+-(void) initPinchHitters;
 
-// TODO: Refactoring
+// TODO: Refactoring, Polymorphism 
 -(Player *) getPowerPlayer;
 -(Player *) getBalancePlayer;
 -(Player *) getAveragePlayer;

@@ -21,16 +21,28 @@
         [self initPowerPlayers];
         [self initBalancePlayers];
         [self initAveragePlayers];
-        [self initpinchHitters];
+        [self initPinchHitters];
     }
     return self;
 }
 
 -(void) initPowerPlayers
 {
+    powerPlayers = [NSMutableArray array];
+
+    // TODO: extract method
     Player *nakamuraTakeya = [[Player alloc] initWithName:@"中村剛" andType:PLAYER_POWER andImage:@"nakamuraTakeya.png"];
+    [powerPlayers addObject:nakamuraTakeya];
+
+    
     Player *balentien = [[Player alloc] initWithName:@"ﾊﾞﾚﾝﾃｨﾝ" andType:PLAYER_POWER andImage:@"balentien.png"];
+    [powerPlayers addObject:balentien];
+
+    
     Player *pena = [[Player alloc] initWithName:@"ペーニャ" andType:PLAYER_POWER andImage:@"pena2.png"];
+    [powerPlayers addObject:pena];
+
+    
     Player *blanco = [[Player alloc] initWithName:@"ﾌﾞﾗﾝｺ" andType:PLAYER_POWER andImage:@"branco.png"];
     Player *nakata = [[Player alloc] initWithName:@"中田翔" andType:PLAYER_POWER andImage:@"nakata.png"];
     Player *tokada = [[Player alloc] initWithName:@"T−岡田" andType:PLAYER_POWER andImage:@"Tokada.png"];
@@ -41,10 +53,6 @@
     Player *brazell = [[Player alloc] initWithName:@"ﾌﾞﾗｾﾞﾙ" andType:PLAYER_POWER andImage:@"brazell.png"];
     Player *dobayashi = [[Player alloc] initWithName:@"堂林" andType:PLAYER_POWER andImage:@"doubayashi.png"];
     
-    powerPlayers = [NSMutableArray array];
-    [powerPlayers addObject:nakamuraTakeya];
-    [powerPlayers addObject:balentien];
-    [powerPlayers addObject:pena];
     [powerPlayers addObject:blanco];
     [powerPlayers addObject:nakata];
     [powerPlayers addObject:tokada];
@@ -58,18 +66,18 @@
 
 -(void) initBalancePlayers
 {
-    Player *matsuda = [[Player alloc] initWithName:@"松田" andType:PLAYER_POWER andImage:@"matsuda.png"];
-    Player *saburo = [[Player alloc] initWithName:@"ｻﾌﾞﾛｰ" andType:PLAYER_POWER andImage:@"saburo.png"];
-    Player *toritani = [[Player alloc] initWithName:@"鳥谷" andType:PLAYER_POWER andImage:@"toritani.png"];
-    Player *hijirisawa = [[Player alloc] initWithName:@"藤田" andType:PLAYER_POWER andImage:@"fujita.png"];
-    Player *tanakaken = [[Player alloc] initWithName:@"田中賢" andType:PLAYER_POWER andImage:@"tanakaken.png"];
-    Player *kurihara = [[Player alloc] initWithName:@"栗原" andType:PLAYER_POWER andImage:@"kurihara.png"];
-    Player *morino = [[Player alloc] initWithName:@"森野" andType:PLAYER_POWER andImage:@"morino.png"];
-    Player *tamura = [[Player alloc] initWithName:@"多村" andType:PLAYER_POWER andImage:@"tamura.png"];
-    Player *ortiz = [[Player alloc] initWithName:@"ｵｰﾃｨｽﾞ" andType:PLAYER_POWER andImage:@"otiz.png"];
-    Player *gotou = [[Player alloc] initWithName:@"後藤" andType:PLAYER_POWER andImage:@"gotou.png"];
-    Player *sakamoto = [[Player alloc] initWithName:@"坂本" andType:PLAYER_POWER andImage:@"sakamoto.png"];
-    Player *milledge = [[Player alloc] initWithName:@"ﾐﾚｯｼﾞ" andType:PLAYER_POWER andImage:@"mirezzi.png"];
+    Player *matsuda = [[Player alloc] initWithName:@"松田" andType:PLAYER_BALANCE andImage:@"matsuda.png"];
+    Player *saburo = [[Player alloc] initWithName:@"ｻﾌﾞﾛｰ" andType:PLAYER_BALANCE andImage:@"saburo.png"];
+    Player *toritani = [[Player alloc] initWithName:@"鳥谷" andType:PLAYER_BALANCE andImage:@"toritani.png"];
+    Player *hijirisawa = [[Player alloc] initWithName:@"藤田" andType:PLAYER_BALANCE andImage:@"fujita.png"];
+    Player *tanakaken = [[Player alloc] initWithName:@"田中賢" andType:PLAYER_BALANCE andImage:@"tanakaken.png"];
+    Player *kurihara = [[Player alloc] initWithName:@"栗原" andType:PLAYER_BALANCE andImage:@"kurihara.png"];
+    Player *morino = [[Player alloc] initWithName:@"森野" andType:PLAYER_BALANCE andImage:@"morino.png"];
+    Player *tamura = [[Player alloc] initWithName:@"多村" andType:PLAYER_BALANCE andImage:@"tamura.png"];
+    Player *ortiz = [[Player alloc] initWithName:@"ｵｰﾃｨｽﾞ" andType:PLAYER_BALANCE andImage:@"otiz.png"];
+    Player *gotou = [[Player alloc] initWithName:@"後藤" andType:PLAYER_BALANCE andImage:@"gotou.png"];
+    Player *sakamoto = [[Player alloc] initWithName:@"坂本" andType:PLAYER_BALANCE andImage:@"sakamoto.png"];
+    Player *milledge = [[Player alloc] initWithName:@"ﾐﾚｯｼﾞ" andType:PLAYER_BALANCE andImage:@"mirezzi.png"];
     
     balancePlayers = [NSMutableArray array];
     [balancePlayers addObject:matsuda];
@@ -88,18 +96,18 @@
 
 -(void) initAveragePlayers
 {
-    Player *murton = [[Player alloc] initWithName:@"ﾏｰﾄﾝ" andType:PLAYER_POWER andImage:@"murton.png"];
-    Player *uchikawa = [[Player alloc] initWithName:@"内川" andType:PLAYER_POWER andImage:@"uchikawa.png"];
-    Player *imae = [[Player alloc] initWithName:@"今江" andType:PLAYER_POWER andImage:@"imae.png"];
-    Player *hirose = [[Player alloc] initWithName:@"廣瀬" andType:PLAYER_POWER andImage:@"hirose.png"];
-    Player *chono = [[Player alloc] initWithName:@"長野" andType:PLAYER_POWER andImage:@"chono.png"];
-    Player *miyamoto = [[Player alloc] initWithName:@"宮本" andType:PLAYER_POWER andImage:@"miyamoto.png"];
-    Player *teppei = [[Player alloc] initWithName:@"鉄平" andType:PLAYER_POWER andImage:@"teppei.png"];
-    Player *sakaguchi = [[Player alloc] initWithName:@"坂口" andType:PLAYER_POWER andImage:@"sakaguchi.png"];
-    Player *itoi = [[Player alloc] initWithName:@"糸井" andType:PLAYER_POWER andImage:@"itoi.png"];
-    Player *oshima = [[Player alloc] initWithName:@"大島" andType:PLAYER_POWER andImage:@"ooshima.png"];
-    Player *kinjo = [[Player alloc] initWithName:@"金城" andType:PLAYER_POWER andImage:@"kinjo.png"];
-    Player *kuriyama = [[Player alloc] initWithName:@"栗山" andType:PLAYER_POWER andImage:@"kuriyama.png"];
+    Player *murton = [[Player alloc] initWithName:@"ﾏｰﾄﾝ" andType:PLAYER_AVERAGE andImage:@"murton.png"];
+    Player *uchikawa = [[Player alloc] initWithName:@"内川" andType:PLAYER_AVERAGE andImage:@"uchikawa.png"];
+    Player *imae = [[Player alloc] initWithName:@"今江" andType:PLAYER_AVERAGE andImage:@"imae.png"];
+    Player *hirose = [[Player alloc] initWithName:@"廣瀬" andType:PLAYER_AVERAGE andImage:@"hirose.png"];
+    Player *chono = [[Player alloc] initWithName:@"長野" andType:PLAYER_AVERAGE andImage:@"chono.png"];
+    Player *miyamoto = [[Player alloc] initWithName:@"宮本" andType:PLAYER_AVERAGE andImage:@"miyamoto.png"];
+    Player *teppei = [[Player alloc] initWithName:@"鉄平" andType:PLAYER_AVERAGE andImage:@"teppei.png"];
+    Player *sakaguchi = [[Player alloc] initWithName:@"坂口" andType:PLAYER_AVERAGE andImage:@"sakaguchi.png"];
+    Player *itoi = [[Player alloc] initWithName:@"糸井" andType:PLAYER_AVERAGE andImage:@"itoi.png"];
+    Player *oshima = [[Player alloc] initWithName:@"大島" andType:PLAYER_AVERAGE andImage:@"ooshima.png"];
+    Player *kinjo = [[Player alloc] initWithName:@"金城" andType:PLAYER_AVERAGE andImage:@"kinjo.png"];
+    Player *kuriyama = [[Player alloc] initWithName:@"栗山" andType:PLAYER_AVERAGE andImage:@"kuriyama.png"];
     
     averagePlayers = [NSMutableArray array];
     [averagePlayers addObject:murton];
@@ -116,21 +124,21 @@
     [averagePlayers addObject:kuriyama];
 }
 
--(void) initpinchHitters
+-(void) initPinchHitters
 {
-    Player *matsunaka = [[Player alloc] initWithName:@"松中" andType:PLAYER_POWER andImage:@"matsunaka.png"];
-    Player *inaba = [[Player alloc] initWithName:@"稲葉" andType:PLAYER_POWER andImage:@"inaba.png"];
-    Player *nakajima = [[Player alloc] initWithName:@"中島" andType:PLAYER_POWER andImage:@"nakajima.png"];
-    Player *matsui = [[Player alloc] initWithName:@"松井稼" andType:PLAYER_POWER andImage:@"matsuiKazuo"];
-    Player *ideho = [[Player alloc] initWithName:@"李大浩" andType:PLAYER_POWER andImage:@"ideho.png"];
-    Player *fukuura = [[Player alloc] initWithName:@"福浦" andType:PLAYER_POWER andImage:@"fukuura.png"];
-    Player *ogasawara = [[Player alloc] initWithName:@"小笠原" andType:PLAYER_POWER andImage:@"ogasawara.png"];
-    Player *kanemoto = [[Player alloc] initWithName:@"金本" andType:PLAYER_POWER andImage:@"kanemoto.png"];
-    Player *wada = [[Player alloc] initWithName:@"和田" andType:PLAYER_POWER andImage:@"wadaKazuhiro.png"];
-    Player *maedatomo = [[Player alloc] initWithName:@"前田智" andType:PLAYER_POWER andImage:@"maedaTomonori.png"];
-    Player *aoki = [[Player alloc] initWithName:@"青木" andType:PLAYER_POWER andImage:@"aoki.png"];
-    Player *ramirez = [[Player alloc] initWithName:@"ﾗﾐﾚｽ" andType:PLAYER_POWER andImage:@"ramirez.png"];
-    Player *yamazakiSusumu = [[Player alloc] initWithName:@"ZACKY" andType:PLAYER_POWER andImage:@"yamazaki.png"];
+    Player *matsunaka = [[Player alloc] initWithName:@"松中" andType:PLAYER_PINCH andImage:@"matsunaka.png"];
+    Player *inaba = [[Player alloc] initWithName:@"稲葉" andType:PLAYER_PINCH andImage:@"inaba.png"];
+    Player *nakajima = [[Player alloc] initWithName:@"中島" andType:PLAYER_PINCH andImage:@"nakajima.png"];
+    Player *matsui = [[Player alloc] initWithName:@"松井稼" andType:PLAYER_PINCH andImage:@"matsuiKazuo"];
+    Player *ideho = [[Player alloc] initWithName:@"李大浩" andType:PLAYER_PINCH andImage:@"ideho.png"];
+    Player *fukuura = [[Player alloc] initWithName:@"福浦" andType:PLAYER_PINCH andImage:@"fukuura.png"];
+    Player *ogasawara = [[Player alloc] initWithName:@"小笠原" andType:PLAYER_PINCH andImage:@"ogasawara.png"];
+    Player *kanemoto = [[Player alloc] initWithName:@"金本" andType:PLAYER_PINCH andImage:@"kanemoto.png"];
+    Player *wada = [[Player alloc] initWithName:@"和田" andType:PLAYER_PINCH andImage:@"wadaKazuhiro.png"];
+    Player *maedatomo = [[Player alloc] initWithName:@"前田智" andType:PLAYER_PINCH andImage:@"maedaTomonori.png"];
+    Player *aoki = [[Player alloc] initWithName:@"青木" andType:PLAYER_PINCH andImage:@"aoki.png"];
+    Player *ramirez = [[Player alloc] initWithName:@"ﾗﾐﾚｽ" andType:PLAYER_PINCH andImage:@"ramirez.png"];
+    Player *yamazakiSusumu = [[Player alloc] initWithName:@"ZACKY" andType:PLAYER_PINCH andImage:@"yamazaki.png"];
     
     pinchHitters = [NSMutableArray array];
     [pinchHitters addObject:matsunaka];
@@ -184,6 +192,7 @@
 
 -(void) addPlayer:(Player *)player
 {
+    // TODO: polymorphism
     if (player) {
         switch (player.playerType) {
             case PLAYER_POWER:
