@@ -27,7 +27,6 @@
 #define sayonaraWin 1
 #define sayonaraHomerun 2
 
-
 @interface ViewController (){
     int whatIsBattingResult;
     int ownScore;
