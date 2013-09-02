@@ -59,6 +59,7 @@
     [notifyCenter addObserver:self selector:@selector(updateRunners:) name:@"UpdateRunners" object:stadium];
     
     stadium = [[Stadium alloc] init];
+    
 }
 
 - (void)didReceiveMemoryWarning
