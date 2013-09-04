@@ -80,6 +80,7 @@
 		0C682308169D4959000814AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0C682306169D4959000814AD /* InfoPlist.strings */; };
 		0C68230B169D4959000814AD /* yakyuuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C68230A169D4959000814AD /* yakyuuTests.m */; };
 		0C9FEBDA16AF85070071C2AC /* gazou.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9FEBD916AF85070071C2AC /* gazou.png */; };
+		F30DEFE117D7033E007D8617 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = F30DEFE017D7033E007D8617 /* Player.m */; };
 		F31F966F179E490B002C4564 /* tsutsugo.png in Resources */ = {isa = PBXBuildFile; fileRef = F31F966E179E490B002C4564 /* tsutsugo.png */; };
 		F31F9671179E4A5B002C4564 /* balentien.png in Resources */ = {isa = PBXBuildFile; fileRef = F31F9670179E4A5B002C4564 /* balentien.png */; };
 		F380EAB5179E4CED008AF6E4 /* abe.png in Resources */ = {isa = PBXBuildFile; fileRef = F380EAB4179E4CED008AF6E4 /* abe.png */; };
@@ -190,6 +191,8 @@
 		0C682309169D4959000814AD /* yakyuuTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = yakyuuTests.h; sourceTree = "<group>"; };
 		0C68230A169D4959000814AD /* yakyuuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = yakyuuTests.m; sourceTree = "<group>"; };
 		0C9FEBD916AF85070071C2AC /* gazou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gazou.png; sourceTree = "<group>"; };
+		F30DEFE017D7033E007D8617 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		F30DEFE217D70359007D8617 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		F31F966E179E490B002C4564 /* tsutsugo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tsutsugo.png; sourceTree = "<group>"; };
 		F31F9670179E4A5B002C4564 /* balentien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = balentien.png; sourceTree = "<group>"; };
 		F380EAB4179E4CED008AF6E4 /* abe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abe.png; sourceTree = "<group>"; };
@@ -276,6 +279,8 @@
 				0C6822F1169D4958000814AD /* MainStoryboard.storyboard */,
 				0C6822F4169D4958000814AD /* ViewController.h */,
 				0C6822F5169D4958000814AD /* ViewController.m */,
+				F30DEFE217D70359007D8617 /* Player.h */,
+				F30DEFE017D7033E007D8617 /* Player.m */,
 				0C6822E0169D4958000814AD /* Supporting Files */,
 			);
 			path = yakyuu;
@@ -578,6 +583,7 @@
 				0C6822E6169D4958000814AD /* main.m in Sources */,
 				0C6822EA169D4958000814AD /* AppDelegate.m in Sources */,
 				0C6822F6169D4958000814AD /* ViewController.m in Sources */,
+				F30DEFE117D7033E007D8617 /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
