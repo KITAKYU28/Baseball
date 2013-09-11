@@ -11,6 +11,17 @@
 @interface Player : NSObject
 
 
+
+typedef enum tagPlayerType
+{
+    power = 1,
+    balance = 2,
+    average = 3,
+    pinchHitter = 4,
+}playerType;
+
+
 -(void)batting;
+-(void)setPlayerStyle:(int)whatIsStyle;
 
 @end

@@ -246,7 +246,6 @@
 				0C9FEBD916AF85070071C2AC /* gazou.png */,
 				0C6822DF169D4958000814AD /* yakyuu */,
 				0C682303169D4958000814AD /* yakyuuTests */,
-				0C6822D8169D4958000814AD /* Frameworks */,
 				0C6822D6169D4958000814AD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -269,6 +268,7 @@
 				0C6822FD169D4958000814AD /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		0C6822DF169D4958000814AD /* yakyuu */ = {
@@ -378,6 +378,7 @@
 		0C682303169D4958000814AD /* yakyuuTests */ = {
 			isa = PBXGroup;
 			children = (
+				0C6822D8169D4958000814AD /* Frameworks */,
 				0C682309169D4959000814AD /* yakyuuTests.h */,
 				0C68230A169D4959000814AD /* yakyuuTests.m */,
 				0C682304169D4959000814AD /* Supporting Files */,

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Player.h"
 
 @interface ViewController : UIViewController{
     NSMutableArray *stadiumBackgroundArray;
@@ -19,6 +20,8 @@
     NSString *whichIsBalancePlayerImage;
     NSString *whichIsAveragePlayerImage;
     NSString *whichIsPinchHitterPlayerImage;
+    
+    Player *player;
 }
 
 typedef struct doesRunnerExistsStruct {

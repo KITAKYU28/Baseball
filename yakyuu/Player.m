@@ -10,7 +10,11 @@
 
 #define howManyTypesOfPlayer 5
 #define howManyKindsOfBattingResult 5
+#define randamNumber 100
+#define basePlayerType 12
 
+int whatIsPlayerStyle;
+int whoIsPlayer;
 
 static int battingRates[howManyTypesOfPlayer][howManyKindsOfBattingResult] = {
     {0, 0, 0, 0, 0,},
@@ -23,12 +27,10 @@ static int battingRates[howManyTypesOfPlayer][howManyKindsOfBattingResult] = {
 @implementation Player
 
 - (void)batting{
+    
+    int whatIsBattingResult = arc4random() % randamNumber;
+    
     /*
-    whatIsBattingResult = arc4random() % randamNumber;
-    [self playerButtonVisible];
-    
-    
-    
     switch(whatIsPlayerStyle){
         case power:
             if(whatIsBattingResult < 20){
@@ -132,5 +134,27 @@ static int battingRates[howManyTypesOfPlayer][howManyKindsOfBattingResult] = {
 */
 }
 
+- (void)setPlayerStyle:(int)whatIsStyle{
+    switch (whatIsStyle) {
+        case power:
+            whatIsPlayerStyle = power;
+            break;
+            
+        case balance:
+            whatIsPlayerStyle = balance;
+            break;
+            
+        case average:
+            whatIsPlayerStyle = average;
+            break;
+            
+        case pinchHitter:
+            whatIsPlayerStyle = pinchHitter;
+            break;
+    }
+            
+    whoIsPlayer = arc4random() % basePlayerType;
+    
+}
 
 @end

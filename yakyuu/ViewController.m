@@ -361,13 +361,17 @@
 
 - (IBAction)setPowerButtonDown:(id)sender {
      [self playerButtonHidden];
+    [player setPlayerStyle:power];
+    
+    /*
     whatIsPlayerStyle = power;
     whoIsPlayer = arc4random() % basePlayerType;
     whichIsPowerPlayerImage = [[powerPlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Image"];
     
     self.batterImage.image = [UIImage imageNamed:whichIsPowerPlayerImage];
     self.playerNameLabel.text = [[powerPlayerArray objectAtIndex:whoIsPlayer] objectForKey:@"Name"];
-}
+*/
+     }
 
 
 - (IBAction)setBalanceButtonDown:(id)sender {
